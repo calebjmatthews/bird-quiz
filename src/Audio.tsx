@@ -4,11 +4,11 @@ import Bird from "./bird"
 import { STATES } from "./enums";
 
 function Audio(props: {
+  state: STATES,
   setState: React.Dispatch<React.SetStateAction<STATES>>,
-  bird: Bird|null,
-  pickBird: () => void
+  bird: Bird|null
 }) {
-  const { setState, bird, pickBird  } = props;
+  const { setState, bird  } = props;
 
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
 
@@ -18,30 +18,28 @@ function Audio(props: {
   };
 
   const playAudio = useCallback(() => {
-    console.log(`playAudio called`);
-    if (!bird) {
-      pickBird();
-    };
     if (!audioPlayer?.current) {
-      console.log(`Setting timeout`);
       setTimeout(() => playAudio(), 100);
       return;
     };
-    console.log(`Before audioPlayer.current.play`);
     audioPlayer.current.play();
   }, [audioPlayer, bird]);
+
+  const playingComplete = () => {
+    setState(STATES.ANSWERING);
+  };
 
   return (
     <section>
       {bird && (
-        <audio ref={audioPlayer} src={bird.audio}>
+        <audio ref={audioPlayer} src={bird.audio} onEnded={playingComplete}>
           Your browser does not support the audio element.
         </audio>
       )}
       <button role="button" onClick={playPress}>
         Play
       </button>
-      {bird?.speciesCommon}
+      {}
     </section>
   );
 };

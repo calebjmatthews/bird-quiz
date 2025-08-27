@@ -3,36 +3,42 @@ import { useState, useCallback } from "react";
 import Audio from "./Audio";
 import Bird from "./bird";
 import birds from "./birds";
+import shuffleArray from "./shuffleArray";
 import { STATES } from "./enums";
 import "./index.css";
+import MultipleChoice from "./MultipleChoice";
 
 function App() {
   const [state, setState] = useState(STATES.CLEAN);
-  const [birdList, setBirdList] = useState(createBirdList());
+  const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
   const [bird, setBird] = useState <Bird> (birdList[0]);
+  const [feedback, setFeedback] = useState <string|null> (null);
 
   const pickBird = useCallback(() => {
-    setBird(birdList[0]);
-    setBirdList(birdList.slice(1));
+    const nextBirdList = birdList.slice(1);
+    setBirdList(nextBirdList);
+    setBird(nextBirdList[0]);
   }, [birdList, setBird, setBirdList]);
+
+  const handleAnswer = (isCorrect: boolean) => {
+    if (isCorrect) setFeedback("That's correct!");
+    else setFeedback(`Sorry, the bird was the ${bird.speciesCommon}.`);
+    pickBird();
+    setState(STATES.CLEAN);
+  };
 
   return (
     <div className="responsive-container">
       <h1>ERM (Environmental Recording Match) Bird Quiz!</h1>
-      <Audio setState={setState} bird={bird} pickBird={pickBird} />
+      <Audio state={state} setState={setState} bird={bird} />
+      {state === (STATES.ANSWERING) && (
+        <MultipleChoice bird={bird} handleAnswer={handleAnswer} />
+      )}
+      {state === (STATES.CLEAN) && (
+        <span>{feedback}</span>
+      )}
     </div>
   );
-};
-
-const createBirdList = () => {
-  const birdList: Bird[] = birds.slice(); 
-
-  for (let index = birdList.length - 1; index > 0; index--) {
-    const toSwap = Math.floor(Math.random() * (index + 1));
-    [birdList[index], birdList[toSwap]] = [birdList[toSwap], birdList[index]];
-  }
-
-  return birdList;
 };
 
 export default App;
