@@ -1,3 +1,4 @@
 export enum STATES {
-  CLEAN = "Clean"
+  CLEAN = "Clean",
+  PLAYING = "Playing"
 };

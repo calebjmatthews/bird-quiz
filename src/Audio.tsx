@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 
 import Bird from "./bird"
 import { STATES } from "./enums";
@@ -6,19 +6,30 @@ import { STATES } from "./enums";
 function Audio(props: {
   setState: React.Dispatch<React.SetStateAction<STATES>>,
   bird: Bird|null,
-  fetchBird: () => Bird
+  pickBird: () => void
 }) {
-  const { setState, bird, fetchBird  } = props;
+  const { setState, bird, pickBird  } = props;
 
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
 
   const playPress = () => {
-    if (!bird) {
-      const newBird = fetchBird();
-    };
-    if (!audioPlayer?.current) return;
-    audioPlayer.current.play();
+    setState(STATES.PLAYING);
+    playAudio();
   };
+
+  const playAudio = useCallback(() => {
+    console.log(`playAudio called`);
+    if (!bird) {
+      pickBird();
+    };
+    if (!audioPlayer?.current) {
+      console.log(`Setting timeout`);
+      setTimeout(() => playAudio(), 100);
+      return;
+    };
+    console.log(`Before audioPlayer.current.play`);
+    audioPlayer.current.play();
+  }, [audioPlayer, bird]);
 
   return (
     <section>
