@@ -3,18 +3,21 @@ const birds =  [
     "audio": require("./audio/LOON__COMMON.MP3"),
     "order": "Gaviiformes",
     "family": "Gaviidae",
+    // "scientific": "Gavia immer",
     "familyCommon": "Loons",
     "speciesCommon": "Common Loon"
   }, {
     "audio": require("./audio/GREBE__PIED_BILLED.mp3"),
     "order": "Podicipediformes",
     "family": "Podicipedidae",
+    // "scientific": "Podilymbus podiceps",
     "familyCommon": "Grebes",
     "speciesCommon": "Pied-billed Grebe"
   }, {
     "audio": require("./audio/BITTERN__AMERICAN.mp3"),
     "order": "Ciconiiformes",
     "family": "Ardeidae",
+    // "scientific": "Botaurus lentiginosus",
     "familyCommon": "Herons/Bitterns/Allies",
     "speciesCommon": "American Bittern"
   }, {
@@ -216,11 +219,35 @@ const birds =  [
     "familyCommon": "Cuckoos/Roadrunners/Anis",
     "speciesCommon": "Black-billed Cuckoo"
   }, {
-    "audio": require("./audio/CUCKOO__BLACK_BILLED.MP3"),
-    "order": "Cuculiformes",
-    "family": "Cuculidae",
-    "familyCommon": "Cuckoos/Roadrunners/Anis",
-    "speciesCommon": "Black-billed Cuckoo"
+    "audio": require("./audio/OWL__EASTERN_SCREECH.MP3"),
+    "order": "Strigiformes",
+    "family": "Strigidae",
+    "familyCommon": "Typical Owls",
+    "speciesCommon": "Eastern Screech Owl"
+  }, {
+    "audio": require("./audio/OWL__GREAT_HORNED.MP3"),
+    "order": "Strigiformes",
+    "family": "Strigidae",
+    "familyCommon": "Typical Owls",
+    "speciesCommon": "Great Horned Owl"
+  }, {
+    "audio": require("./audio/OWL__BARRED.MP3"),
+    "order": "Strigiformes",
+    "family": "Strigidae",
+    "familyCommon": "Typical Owls",
+    "speciesCommon": "Barred Owl"
+  }, {
+    "audio": require("./audio/OWL__NORTHERN_SAW_WHET.MP3"),
+    "order": "Strigiformes",
+    "family": "Strigidae",
+    "familyCommon": "Typical Owls",
+    "speciesCommon": "Northern Saw-whet Owl"
+  }, {
+    "audio": require("./audio/WHIP_POOR_WILL.MP3"),
+    "order": "Caprimulgiformes",
+    "family": "Caprimulgidae",
+    "familyCommon": "Goatsuckers",
+    "speciesCommon": "Whip-poor-will"
   },
   // {
   //   "audio": require("./audio/"),
