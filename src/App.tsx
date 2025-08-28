@@ -21,15 +21,15 @@ function App() {
   }, [birdList, setBird, setBirdList]);
 
   const handleAnswer = (isCorrect: boolean) => {
-    if (isCorrect) setFeedback("That's correct!");
-    else setFeedback(`Sorry, the bird was the ${bird.speciesCommon}.`);
+    if (isCorrect) setFeedback(`That's correct, the ${bird.speciesCommon}!`);
+    else setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
     pickBird();
     setState(STATES.CLEAN);
   };
 
   return (
     <div className="responsive-container">
-      <h1>ERM (Environmental Recording Match) Bird Quiz!</h1>
+      <h1 className="app-heading">ERM (Environmental Recording Match) Bird Quiz</h1>
       <Audio state={state} setState={setState} bird={bird} />
       {state === (STATES.ANSWERING) && (
         <MultipleChoice bird={bird} handleAnswer={handleAnswer} />

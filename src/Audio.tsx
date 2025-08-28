@@ -1,5 +1,6 @@
 import { useRef, useCallback } from "react";
 
+import PlayIcon from "./icons/play";
 import Bird from "./bird"
 import { STATES } from "./enums";
 
@@ -30,16 +31,15 @@ function Audio(props: {
   };
 
   return (
-    <section>
+    <section className="audio-container">
       {bird && (
         <audio ref={audioPlayer} src={bird.audio} onEnded={playingComplete}>
           Your browser does not support the audio element.
         </audio>
       )}
-      <button role="button" onClick={playPress}>
-        Play
+      <button role="button" onClick={playPress} className="audio-button">
+        <PlayIcon strokeColor="#4c6992" />
       </button>
-      {}
     </section>
   );
 };
