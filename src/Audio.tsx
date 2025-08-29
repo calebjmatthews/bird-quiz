@@ -26,6 +26,10 @@ function Audio(props: {
       setState(STATES.PAUSED);
       pauseAudio();
     }
+    else if (state === STATES.PAUSED) {
+      setState(STATES.PLAYING);
+      resumeAudio();
+    }
   };
 
   const playAudio = useCallback(() => {
@@ -46,10 +50,18 @@ function Audio(props: {
     const scalePercent = (100 - (
       -(audioPlayer.current.currentTime - audioPlayer.current.duration) / audioPlayer.current.duration
     ) * 100) * 2;
-    console.log(`scalePercent`, scalePercent);
     setButtonBackgroundStyle({
       transform: `scaleX(${scalePercent}%)`,
       transitionDuration: '0s'
+    });
+  }, [audioPlayer]);
+
+  const resumeAudio = useCallback(() => {
+    if (!audioPlayer.current) return;
+    audioPlayer.current.play();
+    setButtonBackgroundStyle({
+      transform: "scaleX(200%)",
+      transitionDuration: `${audioPlayer.current.duration - audioPlayer.current.currentTime}s`
     });
   }, [audioPlayer]);
 
