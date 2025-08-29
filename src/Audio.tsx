@@ -1,15 +1,19 @@
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState } from "react";
 
 import PlayIcon from "./icons/play";
 import Bird from "./bird"
 import { STATES } from "./enums";
+import PauseIcon from "./icons/pause";
+import ReplayIcon from "./icons/replay";
 
 function Audio(props: {
   state: STATES,
   setState: React.Dispatch<React.SetStateAction<STATES>>,
   bird: Bird|null
 }) {
-  const { setState, bird  } = props;
+  const { state, setState, bird  } = props;
+
+  const [buttonBackgroundStyle, setButtonBackgroundStyle] = useState({});
 
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
 
@@ -24,6 +28,10 @@ function Audio(props: {
       return;
     };
     audioPlayer.current.play();
+    setButtonBackgroundStyle({
+      transform: "scaleX(200%)",
+      "transitionDuration": `${audioPlayer.current.duration}s`
+    });
   }, [audioPlayer, bird]);
 
   const playingComplete = () => {
@@ -38,7 +46,10 @@ function Audio(props: {
         </audio>
       )}
       <button role="button" onClick={playPress} className="audio-button">
-        <PlayIcon strokeColor="#4c6992" />
+        <div className="audio-button-background" style={buttonBackgroundStyle} />
+        {state === STATES.CLEAN && <PlayIcon />}
+        {state === STATES.PLAYING && <PauseIcon />}
+        {state === STATES.ANSWERING && <ReplayIcon />}
       </button>
     </section>
   );
