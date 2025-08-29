@@ -17,9 +17,15 @@ function Audio(props: {
 
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
 
-  const playPress = () => {
-    setState(STATES.PLAYING);
-    playAudio();
+  const audioButtonPress = () => {
+    if (state === STATES.CLEAN) {
+      setState(STATES.PLAYING);
+      playAudio();
+    }
+    else if (state === STATES.PLAYING) {
+      setState(STATES.PAUSED);
+      pauseAudio();
+    }
   };
 
   const playAudio = useCallback(() => {
@@ -30,9 +36,22 @@ function Audio(props: {
     audioPlayer.current.play();
     setButtonBackgroundStyle({
       transform: "scaleX(200%)",
-      "transitionDuration": `${audioPlayer.current.duration}s`
+      transitionDuration: `${audioPlayer.current.duration}s`
     });
-  }, [audioPlayer, bird]);
+  }, [audioPlayer]);
+
+  const pauseAudio = useCallback(() => {
+    if (!audioPlayer.current) return;
+    audioPlayer.current.pause();
+    const scalePercent = (100 - (
+      -(audioPlayer.current.currentTime - audioPlayer.current.duration) / audioPlayer.current.duration
+    ) * 100) * 2;
+    console.log(`scalePercent`, scalePercent);
+    setButtonBackgroundStyle({
+      transform: `scaleX(${scalePercent}%)`,
+      transitionDuration: '0s'
+    });
+  }, [audioPlayer]);
 
   const playingComplete = () => {
     setState(STATES.ANSWERING);
@@ -45,9 +64,9 @@ function Audio(props: {
           Your browser does not support the audio element.
         </audio>
       )}
-      <button role="button" onClick={playPress} className="audio-button">
+      <button role="button" onClick={audioButtonPress} className="audio-button">
         <div className="audio-button-background" style={buttonBackgroundStyle} />
-        {state === STATES.CLEAN && <PlayIcon />}
+        {(state === STATES.CLEAN || state === STATES.PAUSED) && <PlayIcon />}
         {state === STATES.PLAYING && <PauseIcon />}
         {state === STATES.ANSWERING && <ReplayIcon />}
       </button>

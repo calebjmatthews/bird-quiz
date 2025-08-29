@@ -115,6 +115,10 @@ body {
   &:hover {
     background-color: #dae5e7;
     border-color:  #5988ca;
+
+    .audio-button-background {
+      background-color: #b1d7df;
+    }
   }
 
   .audio-button-background {
@@ -123,7 +127,7 @@ body {
     left: -50%;
     height: 100%;
     width: 100%;
-    background-color: #bcbde2;
+    background-color: #bee1e8;
     transform: scaleX(0);
     transition-property: transform;
     transition-duration: 5s;
