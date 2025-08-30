@@ -25,24 +25,28 @@ function App() {
     if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
     if (isCorrect) setFeedback(`That's correct, the ${bird.speciesCommon}!`);
     else setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
-    pickBird();
-    setState(STATES.CLEAN);
+    setState(STATES.ANSWERED);
   };
 
   return (
     <div className="responsive-container">
       <h1 className="app-heading">ERM (Environmental Recording Match) Bird Quiz</h1>
-      <Audio
-        state={state}
-        setState={setState}
-        bird={bird}
-        abortAudio={abortAudio}
-        setAbortAudio={setAbortAudio}
-      />
+        <div className="buttons-container">
+        <Audio
+          state={state}
+          setState={setState}
+          bird={bird}
+          abortAudio={abortAudio}
+          setAbortAudio={setAbortAudio}
+        />
+        {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
+          <button>Next</button>
+        )}
+      </div>
       {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
         <MultipleChoice bird={bird} handleAnswer={handleAnswer} />
       )}
-      {state === STATES.CLEAN && (
+      {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
         <span>{feedback}</span>
       )}
     </div>

@@ -5,5 +5,7 @@ export enum STATES {
   ANSWERING = "Answering",
   REPLAYING = "Replaying",
   REPLAYING_PAUSED = "Replaying paused",
-  ANSWERED = "Answered"
+  ANSWERED = "Answered",
+  REVIEWING = "Reviewing",
+  REVIEWING_PAUSED = "Reviewing paused"
 };

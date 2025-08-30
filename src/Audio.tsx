@@ -55,6 +55,18 @@ function Audio(props: {
       setState(STATES.REPLAYING);
       resumeAudio();
     }
+    else if (state === STATES.ANSWERED) {
+      setState(STATES.REVIEWING);
+      playAudio();
+    }
+    else if (state === STATES.REVIEWING) {
+      setState(STATES.REVIEWING_PAUSED);
+      pauseAudio();
+    }
+    else if (state === STATES.REVIEWING_PAUSED) {
+      setState(STATES.REVIEWING);
+      resumeAudio();
+    }
   };
 
   const playAudio = useCallback(() => {
@@ -91,7 +103,12 @@ function Audio(props: {
   }, [audioPlayer]);
 
   const playingComplete = () => {
-    setState(STATES.ANSWERING);
+    if (state !== STATES.REVIEWING) {
+      setState(STATES.ANSWERING);
+    }
+    else {
+      setState(STATES.ANSWERED);
+    }
     setButtonBackgroundStyle({
       transform: `scaleX(0%)`,
       transitionDuration: '0s'
@@ -107,9 +124,9 @@ function Audio(props: {
       )}
       <button role="button" onClick={audioButtonPress} className="audio-button">
         <div className="audio-button-background" style={buttonBackgroundStyle} />
-        {(state === STATES.CLEAN || state === STATES.PAUSED || state === STATES.REPLAYING_PAUSED) && <PlayIcon />}
-        {(state === STATES.PLAYING || state === STATES.REPLAYING) && <PauseIcon />}
-        {state === STATES.ANSWERING && <ReplayIcon />}
+        {(state === STATES.CLEAN || state === STATES.PAUSED || state === STATES.REPLAYING_PAUSED || state === STATES.REVIEWING_PAUSED) && <PlayIcon />}
+        {(state === STATES.PLAYING || state === STATES.REPLAYING || state === STATES.REVIEWING) && <PauseIcon />}
+        {(state === STATES.ANSWERING || state === STATES.ANSWERED) && <ReplayIcon />}
       </button>
     </section>
   );
