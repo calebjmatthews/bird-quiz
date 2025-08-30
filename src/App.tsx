@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 
 import Audio from "./Audio";
+import ArrowIcon from "./icons/arrow";
 import Bird from "./bird";
 import birds from "./birds";
 import shuffleArray from "./shuffleArray";
@@ -28,6 +29,12 @@ function App() {
     setState(STATES.ANSWERED);
   };
 
+  const nextPress = () => {
+    if (state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) setAbortAudio(true);
+    setState(STATES.CLEAN);
+    pickBird();
+  };
+
   return (
     <div className="responsive-container">
       <h1 className="app-heading">ERM (Environmental Recording Match) Bird Quiz</h1>
@@ -40,14 +47,16 @@ function App() {
           setAbortAudio={setAbortAudio}
         />
         {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-          <button>Next</button>
+          <button className="next-button" onClick={nextPress}>
+            Next<ArrowIcon />
+          </button>
         )}
       </div>
       {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
         <MultipleChoice bird={bird} handleAnswer={handleAnswer} />
       )}
       {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-        <span>{feedback}</span>
+        <p className="panel">{feedback}</p>
       )}
     </div>
   );

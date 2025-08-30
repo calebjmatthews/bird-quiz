@@ -48,6 +48,10 @@ body {
   font-family: Amaranth, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 #root {
   display: flex;
   justify-content: center;
@@ -105,7 +109,6 @@ body {
   padding: 8px;
   border: 6px groove #78a5e6;;
   box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
-  cursor: pointer;
   transition-property: box-shadow, background-color, border-color;
   transition-duration: 0.2s;
 
@@ -140,4 +143,30 @@ body {
     transition-duration: 5s;
     transition-timing-function: linear;
   }
+}
+
+.next-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4c6992;
+  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    path {
+      stroke: #4c6992;
+    }
+  }
+}
+
+.panel {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #4c6992;
+  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
 }
