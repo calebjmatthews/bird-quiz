@@ -145,6 +145,21 @@ button {
   }
 }
 
+.choice-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choice-button {
+  flex: 1 1 40%;
+  min-height: 64px;
+  color: #4c6992;
+  border: 1px solid #4c6992;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+}
+
 .next-button {
   display: flex;
   align-items: center;

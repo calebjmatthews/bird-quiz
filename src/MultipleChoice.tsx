@@ -35,9 +35,13 @@ function MultipleChoice(props: {
   );
 
   return (
-    <form>
+    <form className="choice-form">
       {options.map((option) => (
-        <button key={option.speciesCommon} onClick={() => optionPress(option)}>
+        <button
+          key={option.speciesCommon}
+          className="choice-button"
+          onClick={() => optionPress(option)}
+        >
           {option.speciesCommon}
         </button>
       ))}
