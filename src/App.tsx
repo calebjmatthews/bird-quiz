@@ -30,7 +30,7 @@ function App() {
   };
 
   const nextPress = () => {
-    if (state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) setAbortAudio(true);
+    if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) setAbortAudio(true);
     setState(STATES.CLEAN);
     pickBird();
   };

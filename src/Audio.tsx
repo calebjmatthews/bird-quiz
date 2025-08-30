@@ -21,8 +21,11 @@ function Audio(props: {
 
   useEffect(() => {
     if (abortAudio) {
-      setAbortAudio(true);
-      audioPlayer.current?.pause();
+      setAbortAudio(false);
+      if (audioPlayer.current) {
+        audioPlayer.current.pause();
+        audioPlayer.current.currentTime = 0;
+      };
       setButtonBackgroundStyle({
       transform: `scaleX(0%)`,
       transitionDuration: '0s'
@@ -103,10 +106,10 @@ function Audio(props: {
   }, [audioPlayer]);
 
   const playingComplete = () => {
-    if (state !== STATES.REVIEWING) {
+    if (state !== STATES.REVIEWING && state !== STATES.ANSWERED) {
       setState(STATES.ANSWERING);
     }
-    else {
+    else if (state !== STATES.ANSWERED) {
       setState(STATES.ANSWERED);
     }
     setButtonBackgroundStyle({
