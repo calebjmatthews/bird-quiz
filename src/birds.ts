@@ -248,8 +248,74 @@ const birds =  [
     "family": "Caprimulgidae",
     "familyCommon": "Goatsuckers",
     "speciesCommon": "Whip-poor-will"
+  }, {
+    "audio": require("./audio/SWIFT__CHIMNEY.MP3"),
+    "order": "Apodiformes",
+    "family": "Apodidae",
+    "familyCommon": "Swifts",
+    "speciesCommon": "Chimney Swift"
+  }, {
+    "audio": require("./audio/HUMMINGBIRD__RUBY_THROATED.MP3"),
+    "order": "Apodiformes",
+    "family": "Trochilidae",
+    "familyCommon": "Hummingbirds",
+    "speciesCommon": "Ruby-throated Hummingbird"
+  }, {
+    "audio": require("./audio/KINGFISHER__BELTED.MP3"),
+    "order": "Coraciiformes",
+    "family": "Alcedinidae",
+    "familyCommon": "Kingfishers",
+    "speciesCommon": "Belted Kingfisher"
+  }, {
+    "audio": require("./audio/WOODPECKER__RED_HEADED.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Red-headed Woodpecker"
+  }, {
+    "audio": require("./audio/WOODPECKER__RED_BELLIED.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Red-bellied Woodpecker"
+  }, {
+    "audio": require("./audio/SAPSUCKER__YELLOW_BELLIED.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Yellow-bellied Sapsucker"
+  }, {
+    "audio": require("./audio/WOODPECKER__DOWNY.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Downy Woodpecker"
+  }, {
+    "audio": require("./audio/WOODPECKER__HAIRY.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Hairy Woodpecker"
+  }, {
+    "audio": require("./audio/FLICKER__YELLOW_SHAFTED.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Northern Flicker"
+  }, {
+    "audio": require("./audio/WOODPECKER__PILEATED.MP3"),
+    "order": "Piciformes",
+    "family": "Picidae",
+    "familyCommon": "Woodpeckers/Allies",
+    "speciesCommon": "Pileated Woodpecker"
   },
   // {
+  //   "audio": require("./audio/"),
+  //   "order": "",
+  //   "family": "",
+  //   "familyCommon": "",
+  //   "speciesCommon": ""
+  // }, {
   //   "audio": require("./audio/"),
   //   "order": "",
   //   "family": "",
