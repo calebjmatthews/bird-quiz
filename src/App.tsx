@@ -1,65 +1,62 @@
-import { useState, useCallback } from "react";
-
-import Audio from "./Audio";
-import ArrowIcon from "./icons/arrow";
-import Bird from "./bird";
-import birds from "./birds";
-import shuffleArray from "./shuffleArray";
-import { STATES } from "./enums";
-import "./index.css";
-import MultipleChoice from "./MultipleChoice";
+import { useState } from "react";
+import Main from "./Main";
+import { GAME_MODES } from "./enums";
 
 function App() {
-  const [state, setState] = useState(STATES.CLEAN);
-  const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
-  const [bird, setBird] = useState <Bird> (birdList[0]);
-  const [feedback, setFeedback] = useState <string|null> (null);
-  const [abortAudio, setAbortAudio] = useState(false);
+  const [mode, setMode] = useState<GAME_MODES | null>(null);
 
-  const pickBird = useCallback(() => {
-    const nextBirdList = birdList.slice(1);
-    setBirdList(nextBirdList);
-    setBird(nextBirdList[0]);
-  }, [birdList, setBird, setBirdList]);
+  const modeChoices = [{
+    id: GAME_MODES.MULT_EASY,
+    name: "Multiple Choice - Easier",
+    explanation: "Choose from four random birds."
+  }, {
+    id: GAME_MODES.MULT_HARD,
+    name: "Multiple Choice - Harder",
+    explanation: "Choose from six random birds."
+    // explanation: "Choose from six birds, which are as related as possible."
+  }, {
+    id: GAME_MODES.TEXT_INPUT,
+    name: "Free Text Input",
+    explanation: "Type in your answer with no pre-selected choices."
+  }, {
+    id: GAME_MODES.VOICE_INPUT,
+    name: "Voice Input",
+    explanation: "Say your answer out loud; play hands-free!"
+  }];
 
-  const handleAnswer = (isCorrect: boolean) => {
-    if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
-    if (isCorrect) setFeedback(`That's correct, the ${bird.speciesCommon}!`);
-    else setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
-    setState(STATES.ANSWERED);
+  const modePress = (modeName: GAME_MODES) => {
+    setMode(modeName);
   };
 
-  const nextPress = () => {
-    if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) setAbortAudio(true);
-    setState(STATES.CLEAN);
-    pickBird();
-  };
-
-  return (
+  if (mode === null) return (
     <div className="responsive-container">
-      <h1 className="app-heading">ERM (Environmental Recording Match) Bird Quiz</h1>
-        <div className="buttons-container">
-        <Audio
-          state={state}
-          setState={setState}
-          bird={bird}
-          abortAudio={abortAudio}
-          setAbortAudio={setAbortAudio}
-        />
-        {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-          <button className="next-button" onClick={nextPress}>
-            Next<ArrowIcon />
+      <h1 className="app-heading">
+        <span>E.R.M.</span>
+        <span className="app-heading-explaination">(Environmental Recording Match)</span>
+        <span>Bird Quiz!</span>
+      </h1>
+      <p className="bare-text">Pick a mode:</p>
+      <section className="choice-container">
+        {modeChoices.map((modeChoice) => (
+          <button
+            key={modeChoice.id}
+            className="choice-button"
+            onClick={() => modePress(modeChoice.id)}
+          >
+            <span>{modeChoice.name}</span>
+            <span className="choice-button-explanation">{modeChoice.explanation}</span>
           </button>
-        )}
-      </div>
-      {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
-        <MultipleChoice bird={bird} handleAnswer={handleAnswer} />
-      )}
-      {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-        <p className="panel">{feedback}</p>
-      )}
+        ))}
+      </section>
     </div>
   );
+
+  return (<>
+    <header className="page-header">
+      <span className="page-title">ERM Bird Quiz</span>
+    </header>
+    <Main mode={mode} />
+  </>);
 };
 
-export default App;
+export default App

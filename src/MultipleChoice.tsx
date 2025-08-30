@@ -2,12 +2,14 @@ import { useMemo } from "react";
 import Bird from "./bird";
 import birds from "./birds";
 import shuffleArray from "./shuffleArray";
+import { GAME_MODES } from "./enums";
 
 function MultipleChoice(props: {
+  mode: GAME_MODES,
   bird: Bird,
   handleAnswer: (isCorrect: boolean) => void
 }) {
-  const { bird, handleAnswer } = props;
+  const { mode, bird, handleAnswer } = props;
 
   const options: Bird[] = useMemo(() => {
     const getBird = (currentOptions: Bird[]) => {
@@ -22,7 +24,7 @@ function MultipleChoice(props: {
     };
 
     const nextOptions = [bird];
-    for (let loop = 1; loop < 4; loop++) {
+    for (let loop = 1; loop < (mode === GAME_MODES.MULT_EASY ? 4 : 6); loop++) {
       nextOptions.push(getBird(nextOptions));
     };
     
@@ -35,7 +37,7 @@ function MultipleChoice(props: {
   );
 
   return (
-    <form className="choice-form">
+    <form className="choice-container">
       {options.map((option) => (
         <button
           key={option.speciesCommon}

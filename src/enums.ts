@@ -9,3 +9,10 @@ export enum STATES {
   REVIEWING = "Reviewing",
   REVIEWING_PAUSED = "Reviewing paused"
 };
+
+export enum GAME_MODES {
+  MULT_EASY = "Multiple choice easier",
+  MULT_HARD = "Multiple choice harder",
+  TEXT_INPUT = "Free text input",
+  VOICE_INPUT = "Voice input",
+};
