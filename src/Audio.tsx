@@ -11,7 +11,7 @@ function Audio(props: {
   setState: React.Dispatch<React.SetStateAction<STATES>>,
   bird: Bird|null
 }) {
-  const { state, setState, bird  } = props;
+  const { state, setState, bird } = props;
 
   const [buttonBackgroundStyle, setButtonBackgroundStyle] = useState({});
 
@@ -28,6 +28,18 @@ function Audio(props: {
     }
     else if (state === STATES.PAUSED) {
       setState(STATES.PLAYING);
+      resumeAudio();
+    }
+    else if (state === STATES.ANSWERING) {
+      setState(STATES.REPLAYING);
+      playAudio();
+    }
+    else if (state === STATES.REPLAYING) {
+      setState(STATES.REPLAYING_PAUSED);
+      pauseAudio();
+    }
+    else if (state === STATES.REPLAYING_PAUSED) {
+      setState(STATES.REPLAYING);
       resumeAudio();
     }
   };
@@ -67,6 +79,10 @@ function Audio(props: {
 
   const playingComplete = () => {
     setState(STATES.ANSWERING);
+    setButtonBackgroundStyle({
+      transform: `scaleX(0%)`,
+      transitionDuration: '0s'
+    });
   };
 
   return (
@@ -78,8 +94,8 @@ function Audio(props: {
       )}
       <button role="button" onClick={audioButtonPress} className="audio-button">
         <div className="audio-button-background" style={buttonBackgroundStyle} />
-        {(state === STATES.CLEAN || state === STATES.PAUSED) && <PlayIcon />}
-        {state === STATES.PLAYING && <PauseIcon />}
+        {(state === STATES.CLEAN || state === STATES.PAUSED || state === STATES.REPLAYING_PAUSED) && <PlayIcon />}
+        {(state === STATES.PLAYING || state === STATES.REPLAYING) && <PauseIcon />}
         {state === STATES.ANSWERING && <ReplayIcon />}
       </button>
     </section>
