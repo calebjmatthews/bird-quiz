@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 
 import PlayIcon from "./icons/play";
 import Bird from "./bird"
@@ -9,13 +9,26 @@ import ReplayIcon from "./icons/replay";
 function Audio(props: {
   state: STATES,
   setState: React.Dispatch<React.SetStateAction<STATES>>,
-  bird: Bird|null
+  bird: Bird|null,
+  abortAudio: boolean,
+  setAbortAudio: (nextAbortAudio: boolean) => void
 }) {
-  const { state, setState, bird } = props;
+  const { state, setState, bird, abortAudio, setAbortAudio } = props;
 
   const [buttonBackgroundStyle, setButtonBackgroundStyle] = useState({});
 
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
+
+  useEffect(() => {
+    if (abortAudio) {
+      setAbortAudio(true);
+      audioPlayer.current?.pause();
+      setButtonBackgroundStyle({
+      transform: `scaleX(0%)`,
+      transitionDuration: '0s'
+    });
+    }
+  }, [abortAudio]);
 
   const audioButtonPress = () => {
     if (state === STATES.CLEAN) {

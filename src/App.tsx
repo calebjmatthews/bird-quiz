@@ -13,6 +13,7 @@ function App() {
   const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
   const [bird, setBird] = useState <Bird> (birdList[0]);
   const [feedback, setFeedback] = useState <string|null> (null);
+  const [abortAudio, setAbortAudio] = useState(false);
 
   const pickBird = useCallback(() => {
     const nextBirdList = birdList.slice(1);
@@ -21,6 +22,7 @@ function App() {
   }, [birdList, setBird, setBirdList]);
 
   const handleAnswer = (isCorrect: boolean) => {
+    if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
     if (isCorrect) setFeedback(`That's correct, the ${bird.speciesCommon}!`);
     else setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
     pickBird();
@@ -30,7 +32,13 @@ function App() {
   return (
     <div className="responsive-container">
       <h1 className="app-heading">ERM (Environmental Recording Match) Bird Quiz</h1>
-      <Audio state={state} setState={setState} bird={bird} />
+      <Audio
+        state={state}
+        setState={setState}
+        bird={bird}
+        abortAudio={abortAudio}
+        setAbortAudio={setAbortAudio}
+      />
       {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
         <MultipleChoice bird={bird} handleAnswer={handleAnswer} />
       )}
