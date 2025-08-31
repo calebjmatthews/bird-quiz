@@ -37,7 +37,7 @@ function MultipleChoice(props: {
   );
 
   return (
-    <form className="choice-container">
+    <section className="choice-container">
       {options.map((option) => (
         <button
           key={option.speciesCommon}
@@ -47,7 +47,7 @@ function MultipleChoice(props: {
           {option.speciesCommon}
         </button>
       ))}
-    </form>
+    </section>
   );
 };
 

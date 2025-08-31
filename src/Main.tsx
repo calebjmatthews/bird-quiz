@@ -1,13 +1,13 @@
 import { useState, useCallback } from "react";
 
 import Audio from "./Audio";
+import AnswerControls from "./AnswerControls";
 import ArrowIcon from "./icons/arrow";
 import Bird from "./bird";
 import birds from "./birds";
 import shuffleArray from "./shuffleArray";
 import { GAME_MODES, STATES } from "./enums";
 import "./index.css";
-import MultipleChoice from "./MultipleChoice";
 
 function Main(props: {
   mode: GAME_MODES
@@ -55,7 +55,7 @@ function Main(props: {
         )}
       </div>
       {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
-        <MultipleChoice mode={mode} bird={bird} handleAnswer={handleAnswer} />
+        <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
       )}
       {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
         <p className="panel">{feedback}</p>

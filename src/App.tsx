@@ -17,7 +17,7 @@ function App() {
   }, {
     id: GAME_MODES.TEXT_INPUT,
     name: "Free Text Input",
-    explanation: "Type in your answer with no pre-selected choices."
+    explanation: "Type in your answer directly."
   }, {
     id: GAME_MODES.VOICE_INPUT,
     name: "Voice Input",
