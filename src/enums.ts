@@ -10,6 +10,14 @@ export enum STATES {
   REVIEWING_PAUSED = "Reviewing paused"
 };
 
+export enum MIC_STATES {
+  CLEAN = "Clean",
+  INITIALIZE = "Initialize",
+  INITIALIZING = "Initializing",
+  RECORDING = "Recording",
+  PAUSED = "Paused"
+};
+
 export enum GAME_MODES {
   MULT_EASY = "Multiple choice easier",
   MULT_HARD = "Multiple choice harder",

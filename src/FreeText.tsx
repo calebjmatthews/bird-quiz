@@ -3,7 +3,6 @@ import Fuse from "fuse.js";
 
 import Bird from "./bird";
 import birds from "./birds";
-import { GAME_MODES } from "./enums";
 
 const fuse = new Fuse(birds, { keys: ['speciesCommon'], includeMatches: true, findAllMatches: true });
 

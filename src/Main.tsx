@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 
 import Audio from "./Audio";
 import AnswerControls from "./AnswerControls";
+import Voice from "./Voice";
 import ArrowIcon from "./icons/arrow";
 import Bird from "./bird";
 import birds from "./birds";
@@ -56,6 +57,9 @@ function Main(props: {
       </div>
       {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
         <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
+      )}
+      {(mode === GAME_MODES.VOICE_INPUT) && (
+        <Voice bird={bird} handleAnswer={handleAnswer} />
       )}
       {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
         <p className="panel">{feedback}</p>
