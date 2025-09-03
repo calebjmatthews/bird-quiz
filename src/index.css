@@ -99,11 +99,18 @@ button {
   font-size: 24px;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .buttons-container {
   position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   height: 128px;
 }
 
@@ -197,7 +204,7 @@ button {
 }
 
 .panel {
-  width: 100%;
+  width: min(400px, calc(100vw - 16px));
   padding: 8px 16px;
   background-color: #fff;
   border-radius: 8px;
@@ -205,15 +212,24 @@ button {
   box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(400px, calc(100vw - 16px));
+  gap: 4px;
+}
+
 .input-control {
   display: flex;
-  justify-content: center;
+  align-items: stretch;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
 }
 
 .input {
-  width: min(300px, calc(100% - 40px));
+  flex-grow: 1;
   height: 38px;
   color: #4c6992;
   padding: 0 8px;
@@ -226,8 +242,33 @@ button {
 
 .input-submit-button {
   width: 48px;
+  color: #4c6992;
   border: 1px solid #4c6992;
   border-radius: 0;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+.search-match-container {
+  width: 100%;
+  max-height: calc(100vh - 220px);
+  overflow: auto;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.search-match {
+  padding: 4px 8px;
+  color: #4c6992;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: #fff;
+  transition-property: color, background-color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: #dae5e7;
+    color: #253347;
+  }
 }

@@ -39,7 +39,7 @@ function Main(props: {
   };
 
   return (
-    <div className="responsive-container">
+    <div className="responsive-container main">
       <div className="buttons-container">
         <Audio
           state={state}
