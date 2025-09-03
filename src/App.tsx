@@ -43,8 +43,8 @@ function App() {
             className="choice-button"
             onClick={() => modePress(modeChoice.id)}
           >
-            <span>{modeChoice.name}</span>
-            <span className="choice-button-explanation">{modeChoice.explanation}</span>
+            <span className="choice-button-title">{modeChoice.name}</span>
+            <span>{modeChoice.explanation}</span>
           </button>
         ))}
       </section>
