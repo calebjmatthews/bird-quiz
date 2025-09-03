@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Fuse from "fuse.js";
 
-import Bird from "./bird";
-import birds from "./birds";
+import Bird from "../data/bird";
+import birds from "../data/birds";
 
 const fuse = new Fuse(birds, { keys: ['speciesCommon'], includeMatches: true, findAllMatches: true });
 

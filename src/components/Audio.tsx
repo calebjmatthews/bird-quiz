@@ -1,10 +1,10 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 
 import PlayIcon from "./icons/play";
-import Bird from "./bird"
-import { STATES } from "./enums";
 import PauseIcon from "./icons/pause";
 import ReplayIcon from "./icons/replay";
+import Bird from "../data/bird"
+import { STATES } from "../data/enums";
 
 function Audio(props: {
   state: STATES,

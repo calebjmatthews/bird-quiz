@@ -4,11 +4,11 @@ import Audio from "./Audio";
 import AnswerControls from "./AnswerControls";
 import Voice from "./Voice";
 import ArrowIcon from "./icons/arrow";
-import Bird from "./bird";
-import birds from "./birds";
-import shuffleArray from "./shuffleArray";
-import { GAME_MODES, STATES } from "./enums";
-import "./index.css";
+import Bird from "../data/bird";
+import birds from "../data/birds";
+import shuffleArray from "../data/shuffleArray";
+import { GAME_MODES, STATES } from "../data/enums";
+import "../index.css";
 
 function Main(props: {
   mode: GAME_MODES

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Main from "./Main";
-import { GAME_MODES } from "./enums";
+import { GAME_MODES } from "../data/enums";
 
 function App() {
   const [mode, setMode] = useState<GAME_MODES | null>(null);

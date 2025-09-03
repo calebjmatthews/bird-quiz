@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import Bird from "./bird";
-import birds from "./birds";
-import shuffleArray from "./shuffleArray";
-import { GAME_MODES } from "./enums";
+import Bird from "../data/bird";
+import birds from "../data/birds";
+import shuffleArray from "../data/shuffleArray";
+import { GAME_MODES } from "../data/enums";
 
 function MultipleChoice(props: {
   mode: GAME_MODES,

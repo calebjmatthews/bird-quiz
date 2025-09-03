@@ -1,7 +1,7 @@
 import FreeText from "./FreeText";
 import MultipleChoice from "./MultipleChoice";
-import Bird from "./bird";
-import { GAME_MODES } from "./enums";
+import Bird from "../data/bird";
+import { GAME_MODES } from "../data/enums";
 
 function AnswerControls(props: {
   mode: GAME_MODES,

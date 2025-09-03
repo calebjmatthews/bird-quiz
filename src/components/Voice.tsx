@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { MicVAD } from "@ricky0123/vad-web";
 
-import Bird from "./bird";
-import birds from "./birds";
-import { MIC_STATES } from "./enums";
+import Bird from "../data/bird";
+import birds from "../data/birds";
+import { MIC_STATES } from "../data/enums";
 
 function Voice(props: {
   bird: Bird,
