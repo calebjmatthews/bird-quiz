@@ -18,8 +18,9 @@ function Voice(props: {
   bird: Bird,
   handleAnswer: (isCorrect: boolean) => void,
   nextPress: () => void
+  setReplayAudio: (nextReplayAudio: boolean) => void
 }) {
-  const { state, bird, handleAnswer, nextPress } = props;
+  const { state, bird, handleAnswer, nextPress, setReplayAudio } = props;
 
   const [micVAD, setMicVAD] = useState <MicVAD|null> (null);
   const [micState, setMicState] = useState <MIC_STATES> (MIC_STATES.CLEAN);
@@ -75,8 +76,9 @@ function Voice(props: {
       startMic();
       const closestMatch = matches[0]?.item;
       if (!closestMatch) return;
-      if (closestMatch.value === COMMANDS.AGAIN) {
-        // Repeat audio
+      const replayCommands: string[] = [COMMANDS.AGAIN, COMMANDS.PLAY, COMMANDS.REPLAY];
+      if (replayCommands.includes(closestMatch.value || '')) {
+        setReplayAudio(true);
       }
       else {
         handleAnswer(closestMatch.speciesCommon === bird.speciesCommon);
@@ -116,7 +118,6 @@ function Voice(props: {
   const initializeMic = async () => {
     const nextMicVAD = await MicVAD.new({
       onSpeechEnd: (speech) => {
-        console.log(`initialSpeech`, speech);
         setPendingSpeech(speech);
       }
     });

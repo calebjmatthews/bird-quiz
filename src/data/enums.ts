@@ -29,5 +29,7 @@ export enum GAME_MODES {
 
 export enum COMMANDS {
   AGAIN = "Again",
+  REPLAY = "Replay",
+  PLAY = "Play",
   NEXT = "Next"
 };

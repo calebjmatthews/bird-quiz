@@ -19,6 +19,7 @@ function Main(props: {
   const [bird, setBird] = useState <Bird> (birdList[0]);
   const [feedback, setFeedback] = useState <string|null> (null);
   const [abortAudio, setAbortAudio] = useState(false);
+  const [replayAudio, setReplayAudio] = useState(false);
 
   const pickBird = useCallback(() => {
     const nextBirdList = birdList.slice(1);
@@ -48,6 +49,8 @@ function Main(props: {
           bird={bird}
           abortAudio={abortAudio}
           setAbortAudio={setAbortAudio}
+          replayAudio={replayAudio}
+          setReplayAudio={setReplayAudio}
         />
         {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
           <button className="next-button" onClick={nextPress}>
@@ -59,7 +62,7 @@ function Main(props: {
         <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
       )}
       {(mode === GAME_MODES.VOICE_INPUT) && (
-        <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} />
+        <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
       )}
       {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
         <p className="panel">{feedback}</p>

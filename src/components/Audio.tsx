@@ -11,9 +11,11 @@ function Audio(props: {
   setState: React.Dispatch<React.SetStateAction<STATES>>,
   bird: Bird|null,
   abortAudio: boolean,
-  setAbortAudio: (nextAbortAudio: boolean) => void
+  setAbortAudio: (nextAbortAudio: boolean) => void,
+  replayAudio: boolean,
+  setReplayAudio: (nextReplayAudio: boolean) => void
 }) {
-  const { state, setState, bird, abortAudio, setAbortAudio } = props;
+  const { state, setState, bird, abortAudio, setAbortAudio, replayAudio, setReplayAudio } = props;
 
   const [buttonBackgroundStyle, setButtonBackgroundStyle] = useState({});
 
@@ -33,11 +35,18 @@ function Audio(props: {
         audioPlayer.current.currentTime = 0;
       };
       setButtonBackgroundStyle({
-      transform: `scaleX(0%)`,
-      transitionDuration: '0s'
-    });
+        transform: `scaleX(0%)`,
+        transitionDuration: '0s'
+      });
     }
   }, [abortAudio]);
+
+  useEffect(() => {
+    if (replayAudio) {
+      setReplayAudio(false);
+      audioButtonPress();
+    }
+  }, [replayAudio]);
 
   const audioButtonPress = () => {
     if (state === STATES.CLEAN) {
