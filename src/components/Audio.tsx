@@ -20,6 +20,12 @@ function Audio(props: {
   const audioPlayer: React.RefObject <HTMLAudioElement | null> = useRef(null);
 
   useEffect(() => {
+    if (state === STATES.CLEAN) {
+      setTimeout(() => playAudio(), 100);
+    }
+  }, [state]);
+
+  useEffect(() => {
     if (abortAudio) {
       setAbortAudio(false);
       if (audioPlayer.current) {
