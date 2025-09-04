@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { MicVAD } from "@ricky0123/vad-web";
 import Fuse from "fuse.js";
 
+import MicIcon from "./icons/mic";
 import Bird from "../data/bird";
 import birdsAndCommands from "@/data/birdsAndCommands";
 import float32ToWav from "../data/float32ToWav";
@@ -68,19 +69,22 @@ function Voice(props: {
   }, [pendingSpeech]);
 
   useEffect(() => {
+    const replayCommands: string[] = [COMMANDS.AGAIN, COMMANDS.PLAY, COMMANDS.REPLAY];
     if (speechText && state === STATES.ANSWERING) {
       const matches = fuse.search(speechText);
       setLastSpeechText(speechText);
       setSpeechText(null);
-      setMicState(MIC_STATES.RECORDING);
-      startMic();
+      
       const closestMatch = matches[0]?.item;
       if (!closestMatch) return;
-      const replayCommands: string[] = [COMMANDS.AGAIN, COMMANDS.PLAY, COMMANDS.REPLAY];
       if (replayCommands.includes(closestMatch.value || '')) {
+        setMicState(MIC_STATES.PAUSED);
+        stopMic();
         setReplayAudio(true);
       }
       else {
+        setMicState(MIC_STATES.RECORDING);
+        startMic();
         handleAnswer(closestMatch.speciesCommon === bird.speciesCommon);
       };
     }
@@ -88,13 +92,22 @@ function Voice(props: {
       const matches = fuse.search(speechText);
       setLastSpeechText(speechText);
       setSpeechText(null);
-      setMicState(MIC_STATES.RECORDING);
-      startMic();
       const closestMatch = matches[0]?.item;
       if (!closestMatch) return;
       if (closestMatch.value === COMMANDS.NEXT) {
+        setMicState(MIC_STATES.PAUSED);
+        stopMic();
         nextPress();
-      };
+      }
+      else if (replayCommands.includes(closestMatch.value || '')) {
+        setMicState(MIC_STATES.PAUSED);
+        stopMic();
+        setReplayAudio(true);
+      }
+      else {
+        setMicState(MIC_STATES.RECORDING);
+        startMic();
+      }
     };
   }, [state, speechText]);
 
@@ -142,12 +155,35 @@ function Voice(props: {
     micVAD.pause();
   }, [micState, micVAD]);
 
+  const micLabel = useMemo(() => {
+    switch(micState) {
+      case MIC_STATES.CLEAN:
+      case MIC_STATES.INITIALIZE:
+      case MIC_STATES.INITIALIZING:
+      case MIC_STATES.READY:
+      case MIC_STATES.PAUSED:
+        return 'Waiting';
+
+      case MIC_STATES.RECORDING:
+        return 'Listening';
+
+      case MIC_STATES.PROCESSING:
+        return 'Processing';
+    };
+  }, [micState]);
+
   return (
     <section className="voice-container panel">
-      <div>{`bird: ${bird.speciesCommon}`}</div>
-      <div>{`state: ${state}`}</div>
-      <div>{`micState: ${micState}`}</div>
-      <div>{`speechText: ${speechText || lastSpeechText}`}</div>
+      <h3>Microphone</h3>
+      <div className="voice-body">
+        <div className={`mic-status${micLabel === 'Waiting' ? ' is-waiting' : ''}${micLabel === 'Processing' ? ' is-processing' : ''}`}>
+          <div className="icon-wrapper"><MicIcon /></div>
+          {micLabel}
+        </div>
+        {(speechText || lastSpeechText) && (
+          <p>{`Last heard: ${speechText || lastSpeechText}`}</p>
+        )}
+      </div>
     </section>
   )
 };

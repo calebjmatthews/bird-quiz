@@ -104,6 +104,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
 }
 
 .buttons-container {
@@ -273,5 +274,73 @@ button {
   &:hover {
     background-color: #dae5e7;
     color: #253347;
+  }
+}
+
+.voice-container {
+  h3 {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+.voice-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mic-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+  color: #4c6992;
+  transition: color 0.4s;
+
+  .icon-wrapper {
+    border: 3px solid #4c6992;
+    transition: border-color 0.4s;
+  }
+
+  svg {
+    fill: #4c6992;
+    transition: fill 0.4s;
+  }
+
+  &.is-waiting {
+    color: #869fc1;
+
+    .icon-wrapper {
+      border-color: #869fc1;
+    }
+
+    svg {
+      fill: #869fc1;
+    }
+  }
+
+  &.is-processing {
+    color: #c79c12;
+
+    .icon-wrapper {
+      border-color: #c79c12;
+    }
+
+    svg {
+      fill: #c79c12;
+    }
+  }
+}
+
+.icon-wrapper {
+  width: 36px;
+  height: auto;
+  
+  border-radius: 50%;
+
+  svg {
+    height: 32px;
+    width: auto;
   }
 }
