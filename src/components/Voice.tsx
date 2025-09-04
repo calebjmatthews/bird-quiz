@@ -1,22 +1,31 @@
 import { useState, useEffect, useCallback } from "react";
 import { MicVAD } from "@ricky0123/vad-web";
+import Fuse from "fuse.js";
 
 import Bird from "../data/bird";
-import birds from "../data/birds";
+import birdsAndCommands from "@/data/birdsAndCommands";
 import float32ToWav from "../data/float32ToWav";
-import { MIC_STATES, STATES } from "../data/enums";
+import { COMMANDS, MIC_STATES, STATES } from "../data/enums";
+
+const fuse = new Fuse(birdsAndCommands, {
+  keys: ['speciesCommon', 'value'],
+  includeMatches: true,
+  findAllMatches: true
+});
 
 function Voice(props: {
   state: STATES,
   bird: Bird,
-  handleAnswer: (isCorrect: boolean) => void
+  handleAnswer: (isCorrect: boolean) => void,
+  nextPress: () => void
 }) {
-  const { state, bird, handleAnswer } = props;
+  const { state, bird, handleAnswer, nextPress } = props;
 
   const [micVAD, setMicVAD] = useState <MicVAD|null> (null);
   const [micState, setMicState] = useState <MIC_STATES> (MIC_STATES.CLEAN);
   const [pendingSpeech, setPendingSpeech] = useState <Float32Array<ArrayBufferLike>|null> (null);
   const [speechText, setSpeechText] = useState <string|null> (null);
+  const [lastSpeechText, setLastSpeechText] = useState <string|null> (null);
 
   useEffect(() => {
     if (micState === MIC_STATES.CLEAN) {
@@ -31,6 +40,8 @@ function Voice(props: {
 
   useEffect(() => {
     const handlePendingSpeech = async (speech: Float32Array<ArrayBufferLike>) => {
+      stopMic();
+      setMicState(MIC_STATES.PROCESSING);
       const speechBuffer = new Float32Array(Object.values(speech));
       const blob = float32ToWav(speechBuffer, 16000);
       const speechToTextResult = await fetch("/speech", {
@@ -39,7 +50,6 @@ function Voice(props: {
         body: blob
       });
       const speechTextObj = await speechToTextResult.json();
-      console.log(`speechTextObj`, speechTextObj);
       setSpeechText(speechTextObj.speechText);
     };
 
@@ -50,21 +60,86 @@ function Voice(props: {
     }
   }, [pendingSpeech]);
 
+  useEffect(() => {
+    if (speechText && state === STATES.ANSWERING) {
+      const matches = fuse.search(speechText);
+      setLastSpeechText(speechText);
+      setSpeechText(null);
+      setMicState(MIC_STATES.RECORDING);
+      startMic();
+      const closestMatch = matches[0]?.item;
+      if (!closestMatch) return;
+      if (closestMatch.value === COMMANDS.AGAIN) {
+        // Repeat audio
+      }
+      else {
+        handleAnswer(closestMatch.speciesCommon === bird.speciesCommon);
+      };
+    }
+    else if (speechText && state === STATES.ANSWERED){
+      const matches = fuse.search(speechText);
+      setLastSpeechText(speechText);
+      setSpeechText(null);
+      setMicState(MIC_STATES.RECORDING);
+      startMic();
+      const closestMatch = matches[0]?.item;
+      if (!closestMatch) return;
+      if (closestMatch.value === COMMANDS.NEXT) {
+        nextPress();
+      };
+    };
+  }, [state, speechText]);
+
+  useEffect(() => {
+    switch (state) {
+      case STATES.ANSWERING:
+        case STATES.ANSWERED:
+        startMic();
+        setMicState(MIC_STATES.RECORDING);
+        break;
+
+      case STATES.PLAYING:
+      case STATES.REPLAYING:
+      case STATES.REVIEWING:
+        stopMic();
+        setMicState(MIC_STATES.PAUSED);
+        break;
+    }
+  }, [state]);
+
   const initializeMic = async () => {
     const nextMicVAD = await MicVAD.new({
       onSpeechEnd: (speech) => {
         setPendingSpeech(speech);
       }
     });
-    nextMicVAD.start();
     setMicVAD(nextMicVAD);
     setMicState(MIC_STATES.READY);
   };
+  
+  const startMic = useCallback(() => {
+    if (!micVAD) {
+      setTimeout(() => startMic(), 100);
+      return;
+    }
+    micVAD.start();
+  }, [micState, micVAD]);
+
+  const stopMic = useCallback(() => {
+    if (micState === MIC_STATES.PAUSED || micState === MIC_STATES.PROCESSING) return;
+    if (!micVAD) {
+      setTimeout(() => stopMic(), 100);
+      return;
+    }
+    micVAD.pause();
+  }, [micState, micVAD]);
 
   return (
     <section className="voice-container panel">
+      <div>{`bird: ${bird.speciesCommon}`}</div>
+      <div>{`state: ${state}`}</div>
       <div>{`micState: ${micState}`}</div>
-      <div>{speechText}</div>
+      <div>{`speechText: ${speechText || lastSpeechText}`}</div>
     </section>
   )
 };

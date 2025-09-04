@@ -26,3 +26,8 @@ export enum GAME_MODES {
   TEXT_INPUT = "Free text input",
   VOICE_INPUT = "Voice input",
 };
+
+export enum COMMANDS {
+  AGAIN = "Again",
+  NEXT = "Next"
+};
