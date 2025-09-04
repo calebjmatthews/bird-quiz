@@ -51,12 +51,7 @@ function App() {
     </div>
   );
 
-  return (<>
-    <header className="page-header">
-      <span className="page-title">ERM Bird Quiz</span>
-    </header>
-    <Main mode={mode} />
-  </>);
+  return <Main mode={mode} />;
 };
 
 export default App

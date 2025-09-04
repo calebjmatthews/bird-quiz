@@ -7,6 +7,7 @@ import ArrowIcon from "./icons/arrow";
 import Bird from "../data/bird";
 import birds from "../data/birds";
 import shuffleArray from "../data/shuffleArray";
+import Stats from "../data/stats";
 import { GAME_MODES, STATES } from "../data/enums";
 import "../index.css";
 
@@ -18,6 +19,7 @@ function Main(props: {
   const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
   const [bird, setBird] = useState <Bird> (birdList[0]);
   const [feedback, setFeedback] = useState <string|null> (null);
+  const [stats, setStats] = useState <Stats> ({ correct: 0, total: 0, streak: 0 })
   const [abortAudio, setAbortAudio] = useState(false);
   const [replayAudio, setReplayAudio] = useState(false);
 
@@ -29,8 +31,22 @@ function Main(props: {
 
   const handleAnswer = (isCorrect: boolean) => {
     if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
-    if (isCorrect) setFeedback(`That's correct, the ${bird.speciesCommon}!`);
-    else setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
+    if (isCorrect) {
+      setFeedback(`That's correct, the ${bird.speciesCommon}!`);
+      setStats({
+        correct: (stats.correct + 1),
+        total: (stats.total + 1),
+        streak: (stats.streak + 1)
+      });
+    }
+    else {
+      setFeedback(`Sorry, that's incorrect. It's the ${bird.speciesCommon}.`);
+      setStats({
+        correct: stats.correct,
+        total: (stats.total + 1),
+        streak: 0
+      });
+    }
     setState(STATES.ANSWERED);
   };
 
@@ -41,33 +57,48 @@ function Main(props: {
   };
 
   return (
-    <div className="responsive-container main">
-      <div className="buttons-container">
-        <Audio
-          state={state}
-          setState={setState}
-          bird={bird}
-          abortAudio={abortAudio}
-          setAbortAudio={setAbortAudio}
-          replayAudio={replayAudio}
-          setReplayAudio={setReplayAudio}
-        />
+    <>
+      <header className="page-header">
+        <div className="responsive-container page-header-contents">
+          <span className="page-title">ERM Bird Quiz</span>
+          {stats.total > 0 && (
+            <div className="score-container">
+              <span>{`${stats.correct}/${stats.total}`}</span>
+              {stats.streak > 1 && (
+                <span>{`Streak: ${stats.streak}`}</span>
+              )}
+            </div>
+          )}
+        </div>
+      </header>
+      <div className="responsive-container main">
+        <div className="buttons-container">
+          <Audio
+            state={state}
+            setState={setState}
+            bird={bird}
+            abortAudio={abortAudio}
+            setAbortAudio={setAbortAudio}
+            replayAudio={replayAudio}
+            setReplayAudio={setReplayAudio}
+          />
+          {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
+            <button className="next-button" onClick={nextPress}>
+              Next<ArrowIcon />
+            </button>
+          )}
+        </div>
+        {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
+          <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
+        )}
+        {(mode === GAME_MODES.VOICE_INPUT) && (
+          <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
+        )}
         {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-          <button className="next-button" onClick={nextPress}>
-            Next<ArrowIcon />
-          </button>
+          <p className="panel">{feedback}</p>
         )}
       </div>
-      {(state === STATES.ANSWERING || state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) && (
-        <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
-      )}
-      {(mode === GAME_MODES.VOICE_INPUT) && (
-        <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
-      )}
-      {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-        <p className="panel">{feedback}</p>
-      )}
-    </div>
+    </>
   );
 };
 
