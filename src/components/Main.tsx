@@ -59,7 +59,7 @@ function Main(props: {
         <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
       )}
       {(mode === GAME_MODES.VOICE_INPUT) && (
-        <Voice bird={bird} handleAnswer={handleAnswer} />
+        <Voice state={state} bird={bird} handleAnswer={handleAnswer} />
       )}
       {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
         <p className="panel">{feedback}</p>

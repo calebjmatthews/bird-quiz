@@ -14,7 +14,9 @@ export enum MIC_STATES {
   CLEAN = "Clean",
   INITIALIZE = "Initialize",
   INITIALIZING = "Initializing",
+  READY = "Ready",
   RECORDING = "Recording",
+  PROCESSING = "Processing",
   PAUSED = "Paused"
 };
 

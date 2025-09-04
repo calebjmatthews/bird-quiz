@@ -4,6 +4,7 @@
     "": {
       "name": "bun-react-template",
       "dependencies": {
+        "@picovoice/leopard-node": "^2.0.6",
         "@ricky0123/vad-web": "^0.0.26",
         "fuse.js": "^7.1.0",
         "react": "^19",
@@ -17,6 +18,8 @@
     },
   },
   "packages": {
+    "@picovoice/leopard-node": ["@picovoice/leopard-node@2.0.6", "", { "cpu": [ "!ppc", "!ia32", "!mips", "!ppc64", ] }, "sha512-jrcKGTaGugwo4l8rJu291irexFNZ3aiRkAX5+jEDgrh7y3OWllL5WTwHmNL/QDs6wPTbnilg0agNeM25d5y3cg=="],
+
     "@protobufjs/aspromise": ["@protobufjs/aspromise@1.1.2", "", {}, "sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ=="],
 
     "@protobufjs/base64": ["@protobufjs/base64@1.1.2", "", {}, "sha512-AZkcAA5vnN/v4PDqKyMR5lx7hZttPDgClv83E//FMNhR2TMcLUhfRUBHCmSl0oi9zMgDDqRUJkSxO3wm85+XLg=="],
