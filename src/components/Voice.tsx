@@ -50,7 +50,13 @@ function Voice(props: {
         body: blob
       });
       const speechTextObj = await speechToTextResult.json();
-      setSpeechText(speechTextObj.speechText);
+      if (speechTextObj?.speechText?.length > 2) {
+        setSpeechText(speechTextObj.speechText);
+      }
+      else {
+        setMicState(MIC_STATES.RECORDING);
+        startMic();
+      }
     };
 
     if (pendingSpeech) {
@@ -110,6 +116,7 @@ function Voice(props: {
   const initializeMic = async () => {
     const nextMicVAD = await MicVAD.new({
       onSpeechEnd: (speech) => {
+        console.log(`initialSpeech`, speech);
         setPendingSpeech(speech);
       }
     });
