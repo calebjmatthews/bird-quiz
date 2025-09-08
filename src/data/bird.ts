@@ -1,5 +1,5 @@
 export default interface Bird {
-  audio: any;
+  audio: any[];
   order: string;
   family: string;
   familyCommon: string;

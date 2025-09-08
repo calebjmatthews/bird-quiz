@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState, useEffect } from "react";
+import { useRef, useCallback, useState, useEffect, useMemo } from "react";
 
 import PlayIcon from "./icons/play";
 import PauseIcon from "./icons/pause";
@@ -47,6 +47,10 @@ function Audio(props: {
       audioButtonPress();
     }
   }, [replayAudio]);
+
+  const birdAudio = useMemo(() => (
+    bird ? bird.audio[Math.floor(Math.random() * bird.audio.length)] : null
+  ), [bird]);
 
   const audioButtonPress = () => {
     if (state === STATES.CLEAN) {
@@ -136,7 +140,7 @@ function Audio(props: {
   return (
     <section className="audio-container">
       {bird && (
-        <audio ref={audioPlayer} src={bird.audio} onEnded={playingComplete}>
+        <audio ref={audioPlayer} src={birdAudio} onEnded={playingComplete}>
           Your browser does not support the audio element.
         </audio>
       )}
