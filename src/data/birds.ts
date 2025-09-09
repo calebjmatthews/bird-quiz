@@ -363,13 +363,15 @@ const birds: Bird[] =  [
   }, {
     audio: [
       require("../audio/SANDPIPER__UPLAND.MP3"),
+      require("../audio/Bartramia_longicauda_-_Upland_Sandpiper_-_XC104531.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/UplandSandpiperOntarioCropped.jpg"),
+      require("../images/Upland_Sandpiper_by_Andy_Reago__Chrissy_McClarren_550_375.webp")
     ],
     order: "Charadriiformes",
     family: "Scolopacidae",
+    scientific: "Bartramia longicauda",
     familyCommon: "Sandpipers/Phalaropes/Allies",
     speciesCommon: "Upland Sandpiper"
   }, {
@@ -377,23 +379,25 @@ const birds: Bird[] =  [
       require("../audio/SNIPE__COMMON.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Gallinago-delicata-002-cropped.jpg"),
+      require("../images/Wilson's_Snipe_Bolivar_Peninsula.jpg")
     ],
     order: "Charadriiformes",
     family: "Scolopacidae",
+    scientific: "Gallinago delicata",
     familyCommon: "Sandpipers/Phalaropes/Allies",
-    speciesCommon: "Common Snipe"
+    speciesCommon: "Wilson's snipe"
   }, {
     audio: [
       require("../audio/WOODCOCK__AMERICAN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/1509px-American_woodcock_(95252).jpg"),
+      require("../images/AMWO.webp")
     ],
     order: "Charadriiformes",
     family: "Scolopacidae",
+    scientific: "Scolopax minor",
     familyCommon: "Sandpipers/Phalaropes/Allies",
     speciesCommon: "American Woodcock"
   }, {
@@ -401,11 +405,12 @@ const birds: Bird[] =  [
       require("../audio/GULL__RING_BILLED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Larus-delawarensis-021.jpg"),
+      require("../images/Ring-billed_gull_in_flight_(94615)_(cropped).jpg")
     ],
     order: "Charadriiformes",
     family: "Laridae",
+    scientific: "Larus delawarensis",
     familyCommon: "Skuas/Gulls/Terns/Skimmers",
     speciesCommon: "Ring-billed Gull"
   }, {
@@ -413,11 +418,12 @@ const birds: Bird[] =  [
       require("../audio/TERN__CASPIAN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Sterna-caspia-010.jpg"),
+      require("../images/Caspian_tern_(Hydroprogne_caspia)_non-breeding.jpg")
     ],
     order: "Charadriiformes",
     family: "Laridae",
+    scientific: "Hydroprogne caspia",
     familyCommon: "Skuas/Gulls/Terns/Skimmers",
     speciesCommon: "Caspian Tern"
   }, {
@@ -425,11 +431,12 @@ const birds: Bird[] =  [
       require("../audio/TERN__FORSTER_S.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Forster's_Tern,_Horicon_NWR,_Wisconsin.jpg"),
+      require("../images/Forster's_Tern.jpg")
     ],
     order: "Charadriiformes",
     family: "Laridae",
+    scientific: "Sterna forsteri",
     familyCommon: "Skuas/Gulls/Terns/Skimmers",
     speciesCommon: "Forster's Tern"
   }, {
@@ -437,11 +444,12 @@ const birds: Bird[] =  [
       require("../audio/TERN__BLACK.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Čorík_čierny_(Chlidonias_niger)_a_(4644831482).jpg"),
+      require("../images/1350px-Chlidonias_niger_GNP_01.jpg")
     ],
     order: "Charadriiformes",
     family: "Laridae",
+    scientific: "Chlidonias niger",
     familyCommon: "Skuas/Gulls/Terns/Skimmers",
     speciesCommon: "Black Tern"
   }, {
@@ -449,23 +457,26 @@ const birds: Bird[] =  [
       require("../audio/DOVE__ROCK.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Wild_rock_dove_at_Raikot.png"),
+      require("../images/Rock_Doves,_West_Azerbaijan.jpg")
     ],
     order: "Columbiformes",
     family: "Columbidae",
+    scientific: "Columba livia",
     familyCommon: "Pigeons/Doves",
     speciesCommon: "Rock Pigeon"
   }, {
     audio: [
       require("../audio/DOVE__MOURNING.mp3"),
+      require("../audio/Zenaida_macroura_vocalizations_-_pone.0027052.s009.oga"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Av_Mourning_Dove_JG.jpg"),
+      require("../images/Zenaida_macroura_-California-8-2c.jpg")
     ],
     order: "Columbiformes",
     family: "Columbidae",
+    scientific: "Zenaida macroura",
     familyCommon: "Pigeons/Doves",
     speciesCommon: "Mourning Dove"
   }, {
@@ -473,11 +484,12 @@ const birds: Bird[] =  [
       require("../audio/CUCKOO__BLACK_BILLED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Black-billed-cuckoo2.jpg"),
+      require("../images/Black-billed_Cuckoo_(13883974479).jpg")
     ],
     order: "Cuculiformes",
     family: "Cuculidae",
+    scientific: "Coccyzus erythropthalmus",
     familyCommon: "Cuckoos/Roadrunners/Anis",
     speciesCommon: "Black-billed Cuckoo"
   }, {
@@ -485,35 +497,39 @@ const birds: Bird[] =  [
       require("../audio/OWL__EASTERN_SCREECH.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Eastern_Screech_Owl.jpg"),
+      require("../images/EasternScreechOwl-Rufous.jpg")
     ],
     order: "Strigiformes",
     family: "Strigidae",
+    scientific: "Megascops asio",
     familyCommon: "Typical Owls",
     speciesCommon: "Eastern Screech Owl"
   }, {
     audio: [
       require("../audio/OWL__GREAT_HORNED.MP3"),
+      require("../audio/Bubo_virginianus_-_Great_Horned_Owl_XC450919.mp3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Bubo_virginianus_06.jpg"),
+      require("../images/Bubo_virginianus_-Canada-6.jpg")
     ],
     order: "Strigiformes",
     family: "Strigidae",
     familyCommon: "Typical Owls",
+    scientific: "Bubo virginianus",
     speciesCommon: "Great Horned Owl"
   }, {
     audio: [
       require("../audio/OWL__BARRED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Strix-varia-005.jpg"),
+      require("../images/Barred_Owl_Closeup.jpg")
     ],
     order: "Strigiformes",
     family: "Strigidae",
+    scientific: "Strix varia",
     familyCommon: "Typical Owls",
     speciesCommon: "Barred Owl"
   }, {
@@ -521,23 +537,26 @@ const birds: Bird[] =  [
       require("../audio/OWL__NORTHERN_SAW_WHET.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Male_Northern_Saw-whet_Owl_(7364047820).jpg"),
+      require("../images/Saw_Whet_Owl_Burian_5007.jpg")
     ],
     order: "Strigiformes",
     family: "Strigidae",
+    scientific: "Aegolius acadicus",
     familyCommon: "Typical Owls",
     speciesCommon: "Northern Saw-whet Owl"
   }, {
     audio: [
       require("../audio/WHIP_POOR_WILL.MP3"),
+      require("../audio/Antrostomus_vociferus_-_Eastern_Whip-poor-will_-_XC103418.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Caprimulgus_vociferusAAP065B.jpg"),
+      require("../images/EasternWhip-poor-will.jpg")
     ],
     order: "Caprimulgiformes",
     family: "Caprimulgidae",
+    scientific: "Antrostomus vociferus",
     familyCommon: "Goatsuckers",
     speciesCommon: "Whip-poor-will"
   }, {
