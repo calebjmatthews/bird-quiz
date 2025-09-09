@@ -1,1368 +1,2090 @@
-const birds =  [
+import Bird from "./bird";
+
+const birds: Bird[] =  [
   {
-    "audio": [
+    audio: [
       require("../audio/LOON__COMMON.MP3"),
+      require("../audio/Common_loon_tremolo.ogg"),
     ],
-    "order": "Gaviiformes",
-    "family": "Gaviidae",
-    // "scientific": "Gavia immer",
-    "familyCommon": "Loons",
-    "speciesCommon": "Common Loon"
+    images: [
+      require("../images/Gavia_immer_-Minocqua,_Wisconsin,_USA_-swimming-8.jpg"),
+      require("../images/Loon,_common_04-24_a.jpg")
+    ],
+    order: "Gaviiformes",
+    family: "Gaviidae",
+    scientific: "Gavia immer",
+    familyCommon: "Loons",
+    speciesCommon: "Common Loon"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GREBE__PIED_BILLED.mp3"),
     ],
-    "order":"Podicipediformes",
-    "family": "Podicipedidae",
-    // "scientific": "Podilymbus podiceps",
-    "familyCommon": "Grebes",
-    "speciesCommon": "Pied-billed Grebe"
+    mnemonic: "whooping kuk-kuk-cow-cow-cow-cowp-cowp",
+    images: [
+      require("../images/Podilymbus-podiceps-001.jpg"),
+      require("../images/Pied-billed_grebe_(Podilymbus_podiceps_antarcticus)_Cundinamarca.jpg")
+    ],
+    order: "Podicipediformes",
+    family: "Podicipedidae",
+    scientific: "Podilymbus podiceps",
+    familyCommon: "Grebes",
+    speciesCommon: "Pied-billed Grebe"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BITTERN__AMERICAN.mp3"),
     ],
-    "order":"Ciconiiformes",
-    "family": "Ardeidae",
-    // "scientific": "Botaurus lentiginosus",
-    "familyCommon": "Herons/Bitterns/Allies",
-    "speciesCommon": "American Bittern"
+    mnemonic: "oong, kach, oonk",
+    images: [
+      require("../images/Botaurus_lentiginosus_28079.jpeg"),
+      require("../images/American_Bittern_-_Nisqually_NWR.jpg")
+    ],
+    order: "Ciconiiformes",
+    family: "Ardeidae",
+    scientific: "Botaurus lentiginosus",
+    familyCommon: "Herons/Bitterns/Allies",
+    speciesCommon: "American Bittern"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BITTERN__LEAST.mp3"),
+      require("../audio/Ixobrychus_exilis_-_Least_Bittern_XC251028.mp3"),
     ],
-    "order":"Ciconiiformes",
-    "family": "Ardeidae",
-    "familyCommon": "Herons/Bitterns/Allies",
-    "speciesCommon": "Least Bittern"
+    images: [
+      require("../images/Least_Bittern_For_Wiki.png"),
+      require("../images/Least_bittern_(71430).jpg")
+    ],
+    order: "Ciconiiformes",
+    family: "Ardeidae",
+    scientific: "Botaurus exilis",
+    familyCommon: "Herons/Bitterns/Allies",
+    speciesCommon: "Least Bittern"
   }, {
-    "audio": [
+    audio: [
       require("../audio/HERON__BLACK_CROWNED_NIGHT.mp3"),
+      require("../audio/Nycticorax_nycticorax_-_Black-crowned_Night_Heron_-_XC99573.ogg"),
     ],
-    "order":"Ciconiiformes",
-    "family": "Ardeidae",
-    "familyCommon": "Herons/Bitterns/Allies",
-    "speciesCommon": "Black-crowned Night-Heron"
+    images: [
+      require("../images/BlackCrownedNightHeronDusky.jpg"),
+      require("../images/Nycticorax_nycticorax_457953189.jpg")
+    ],
+    order: "Ciconiiformes",
+    family: "Ardeidae",
+    scientific: "Nycticorax nycticorax",
+    familyCommon: "Herons/Bitterns/Allies",
+    speciesCommon: "Black-crowned Night-Heron"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GOOSE__CANADA.mp3"),
+      require("../audio/Branta_canadensis.mp3"),
     ],
-    "order":"Anseriformes",
-    "family": "Anatidae",
-    "familyCommon": "Ducks/Geese/Swans",
-    "speciesCommon": "Canada Goose"
+    images: [
+      require("../images/Canada_goose_on_Seedskadee_NWR_(27826185489).jpg"),
+      require("../images/Branta_canadensis_-near_Oceanville,_New_Jersey,_USA_-flying-8.jpg")
+    ],
+    order: "Anseriformes",
+    family: "Anatidae",
+    scientific: "Branta canadensis",
+    familyCommon: "Ducks/Geese/Swans",
+    speciesCommon: "Canada Goose"
   }, {
-    "audio": [
+    audio: [
       require("../audio/DUCK__WOOD.mp3"),
+      require("../audio/Aix_sponsa_-_Wood_Duck_-_XC63109.mp3"),
     ],
-    "order":"Anseriformes",
-    "family": "Anatidae",
-    "familyCommon": "Ducks/Geese/Swans",
-    "speciesCommon": "Wood Duck"
+    images: [
+      require("../images/Wood_Duck_Wissahickon_Creek.png"),
+      require("../images/Hen_Wood_Duck.png")
+    ],
+    order: "Anseriformes",
+    family: "Anatidae",
+    scientific: "Aix sponsa",
+    familyCommon: "Ducks/Geese/Swans",
+    speciesCommon: "Wood Duck"
   }, {
-    "audio": [
+    audio: [
       require("../audio/MALLARD.mp3"),
+      require("../audio/Anas_platyrhynchos_-_Mallard_-_XC62258.mp3"),
     ],
-    "order":"Anseriformes",
-    "family": "Anatidae",
-    "familyCommon": "Ducks/Geese/Swans",
-    "speciesCommon": "Mallard"
+    images: [
+      require("../images/Anas_platyrhynchos_male_female_quadrat.jpg"),
+      require("../images/DrakeMallardPortrait.png")
+    ],
+    order: "Anseriformes",
+    family: "Anatidae",
+    scientific: "Anas platyrhynchos",
+    familyCommon: "Ducks/Geese/Swans",
+    speciesCommon: "Mallard"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GOSHAWK__NORTHERN.mp3"),
     ],
-    "order":"Falconiformes",
-    "family": "Accipitridae",
-    "familyCommon": "Hawks/Kites/Eagles/Allies",
-    "speciesCommon": "Northern Goshawk"
-  }, {
-    "audio": [
-      require("../audio/HAWK__RED_SHOULDERED.mp3"),
+    images: [
+      require("../images/Goshawkmale66.jpg"),
+      require("../images/Accipiter_gentilisAAP045CA.jpg")
     ],
-    "order":"Falconiformes",
-    "family": "Accipitridae",
-    "familyCommon": "Hawks/Kites/Eagles/Allies",
-    "speciesCommon": "Red-shouldered Hawk"
+    order: "Falconiformes",
+    family: "Accipitridae",
+    scientific: "Astur atricapillus",
+    familyCommon: "Hawks/Kites/Eagles/Allies",
+    speciesCommon: "Northern Goshawk"
   }, {
-    "audio": [
+    audio: [
+      require("../audio/HAWK__RED_SHOULDERED.mp3"),
+      require("../audio/Red-shouldered_hawk_calling.ogg"),
+    ],
+    images: [
+      require("../images/Red-shouldered_Hawk_(Buteo_lineatus)_-_Blue_Cypress_Lake,_Florida.jpg"),
+      require("../images/Red-shouldered_hawk_taking_flight.jpeg")
+    ],
+    order: "Falconiformes",
+    family: "Accipitridae",
+    scientific: "Buteo lineatus",
+    familyCommon: "Hawks/Kites/Eagles/Allies",
+    speciesCommon: "Red-shouldered Hawk"
+  }, {
+    audio: [
       require("../audio/HAWK__BROAD_WINGED.mp3"),
     ],
-    "order":"Falconiformes",
-    "family": "Accipitridae",
-    "familyCommon": "Hawks/Kites/Eagles/Allies",
-    "speciesCommon": "Broad-winged Hawk"
-  }, {
-    "audio": [
-      require("../audio/HAWK__RED_TAILED.mp3"),
+    mnemonic: "very high-pitched kee-ee, almost like a whistle",
+    images: [
+      require("../images/Julie_Waters_broad_winged_hawk.jpeg"),
+      require("../images/BroadwingedHawk23.jpg")
     ],
-    "order":"Falconiformes",
-    "family": "Accipitridae",
-    "familyCommon": "Hawks/Kites/Eagles/Allies",
-    "speciesCommon": "Red-tailed Hawk"
+    order: "Falconiformes",
+    family: "Accipitridae",
+    scientific: "Buteo platypterus",
+    familyCommon: "Hawks/Kites/Eagles/Allies",
+    speciesCommon: "Broad-winged Hawk"
   }, {
-    "audio": [
+    audio: [
+      require("../audio/HAWK__RED_TAILED.mp3"),
+      require("../audio/Screaming_Hawk.wav"),
+    ],
+    images: [
+      require("../images/Red-tailed_Hawk_(45812546121).jpg"),
+      require("../images/Red-tailed_hawk_in_flight.jpg")
+    ],
+    order: "Falconiformes",
+    family: "Accipitridae",
+    scientific: "Buteo jamaicensis",
+    familyCommon: "Hawks/Kites/Eagles/Allies",
+    speciesCommon: "Red-tailed Hawk"
+  }, {
+    audio: [
       require("../audio/KESTREL__AMERICAN.mp3"),
     ],
-    "order":"Falconiformes",
-    "family": "Falconidae",
-    "familyCommon": "Caracaras/Falcons",
-    "speciesCommon": "American Kestrel"
+    mnemonic: `three basic vocalizations – the "klee" or "killy", the "whine", and the "chitter"`,
+    images: [
+      require("../images/AmericanKestrel02.jpg"),
+      require("../images/Female_American_Kestrel.jpg")
+    ],
+    order: "Falconiformes",
+    family: "Falconidae",
+    scientific: "Falco sparverius",
+    familyCommon: "Caracaras/Falcons",
+    speciesCommon: "American Kestrel"
   }, {
-    "audio": [
+    audio: [
       require("../audio/MERLIN.MP3"),
+      require("../audio/Falco_columbarius_-_Merlin_-_XC101582.ogg"),
     ],
-    "order":"Falconiformes",
-    "family": "Falconidae",
-    "familyCommon": "Caracaras/Falcons",
-    "speciesCommon": "Merlin"
+    images: [
+      require("../images/Merlin_in_Prospect_Park_(63386).jpg"),
+      require("../images/Merlin,_Dumfries_&_Galloway,_Scotland_(53554254330).jpg")
+    ],
+    order: "Falconiformes",
+    family: "Falconidae",
+    scientific: "Falco columbarius",
+    familyCommon: "Caracaras/Falcons",
+    speciesCommon: "Merlin"
   }, {
-    "audio": [
+    audio: [
       require("../audio/PHEASANT__RING_NECKED.MP3"),
+      require("../audio/Phasianus_colchicus.ogg"),
     ],
-    "order":"Galliformes",
-    "family": "Phasianidae",
-    "familyCommon": "Partridges/Grouse/Turkeys/Quail",
-    "speciesCommon": "Ring-necked Pheasant"
+    images: [
+      require("../images/Pheasant_(Phasianus_colchicus)_(51028701818).jpg"),
+      require("../images/Phasianus_colchicus_-Rutland_Water_-female-8.jpg")
+    ],
+    order: "Galliformes",
+    family: "Phasianidae",
+    scientific: "Phasianus colchicus",
+    familyCommon: "Partridges/Grouse/Turkeys/Quail",
+    speciesCommon: "Ring-necked Pheasant"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GROUSE__RUFFED.MP3"),
+      require("../audio/Bonasa-umbellus.20100830.ogg"),
     ],
-    "order":"Galliformes",
-    "family": "Phasianidae",
-    "familyCommon": "Partridges/Grouse/Turkeys/Quail",
-    "speciesCommon": "Ruffed Grouse"
+    images: [
+      require("../images/Ruffed_Grouse_(18645551408).jpg"),
+      require("../images/Bonasa-umbellus-001edit1.jpg")
+    ],
+    order: "Galliformes",
+    family: "Phasianidae",
+    scientific: "Bonasa umbellus",
+    familyCommon: "Partridges/Grouse/Turkeys/Quail",
+    speciesCommon: "Ruffed Grouse"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CHICKEN__GREATER_PRAIRE.MP3"),
     ],
-    "order":"Galliformes",
-    "family": "Phasianidae",
-    "familyCommon": "Partridges/Grouse/Turkeys/Quail",
-    "speciesCommon": "Greater Prairie-Chicken"
+    images: [
+      require("../images/Tympanuchus_cupido_-Illinois,_USA_-male_displaying-8_.jpg"),
+      require("../images/Greater_Prairie_Chicken_(Tympanuchus_cupido)_(20351644665).jpg")
+    ],
+    order: "Galliformes",
+    family: "Phasianidae",
+    scientific: "Tympanuchus cupido",
+    familyCommon: "Partridges/Grouse/Turkeys/Quail",
+    speciesCommon: "Greater Prairie-Chicken"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TURKEY__WILD.MP3"),
     ],
-    "order":"Galliformes",
-    "family": "Phasianidae",
-    "familyCommon": "Partridges/Grouse/Turkeys/Quail",
-    "speciesCommon": "Wild Turkey"
-  }, {
-    "audio": [
-      require("../audio/RAIL__YELLOW.MP3"),
+    images: [
+      require("../images/Gall-dindi.jpg"),
+      require("../images/Wild_Turkey_(female)_-_Meleagris_gallopavo.jpg")
     ],
-    "order":"Gruiformes",
-    "family": "Rallidae",
-    "familyCommon": "Rails/Gallinules/Coots",
-    "speciesCommon": "Yellow Rail"
+    order: "Galliformes",
+    family: "Phasianidae",
+    scientific: "Meleagris gallopavo",
+    familyCommon: "Partridges/Grouse/Turkeys/Quail",
+    speciesCommon: "Wild Turkey"
   }, {
-    "audio": [
+    audio: [
+      require("../audio/RAIL__YELLOW.MP3"),
+      require("../audio/Coturnicops_noveboracensis_-_Yellow_Rail_XC344711.mp3"),
+    ],
+    images: [
+      require("../images/Yellow_Rail.jpg"),
+      require("../images/303199891-1280px.jpg")
+    ],
+    order: "Gruiformes",
+    family: "Rallidae",
+    scientific: "Coturnicops noveboracensis",
+    familyCommon: "Rails/Gallinules/Coots",
+    speciesCommon: "Yellow Rail"
+  }, {
+    audio: [
       require("../audio/RAIL__VIRGINIA.MP3"),
     ],
-    "order":"Gruiformes",
-    "family": "Rallidae",
-    "familyCommon": "Rails/Gallinules/Coots",
-    "speciesCommon": "Virginia Rail"
-  }, {
-    "audio": [
-      require("../audio/RAIL__SORA.MP3"),
+    mnemonic: `"tick-it" or "kid-ick"`,
+    images: [
+      require("../images/Virginia_rail_(41109).jpg"),
+      require("../images/Virginia_rail.jpeg")
     ],
-    "order":"Gruiformes",
-    "family": "Rallidae",
-    "familyCommon": "Rails/Gallinules/Coots",
-    "speciesCommon": "Sora"
+    order: "Gruiformes",
+    family: "Rallidae",
+    scientific: "Rallus limicola",
+    familyCommon: "Rails/Gallinules/Coots",
+    speciesCommon: "Virginia Rail"
   }, {
-    "audio": [
+    audio: [
+      require("../audio/RAIL__SORA.MP3"),
+      require("../audio/Porzana_carolina_-_Sora_XC109542.mp3"),
+    ],
+    images: [
+      require("../images/Sora_(Porzana_carolina).jpg"),
+      require("../images/Porzana_carolina.jpg")
+    ],
+    order: "Gruiformes",
+    family: "Rallidae",
+    scientific: "Porzana carolina",
+    familyCommon: "Rails/Gallinules/Coots",
+    speciesCommon: "Sora"
+  }, {
+    audio: [
       require("../audio/MOORHEN__COMMON.MP3"),
     ],
-    "order":"Gruiformes",
-    "family": "Rallidae",
-    "familyCommon": "Rails/Gallinules/Coots",
-    "speciesCommon": "Common Moorhen"
+    images: [
+      require("../images/Common-gallinule-galapagos-casey-klebba.jpg"),
+      require("../images/Gallinula_galeata_cachinnans_Everglades.jpg")
+    ],
+    order: "Gruiformes",
+    family: "Rallidae",
+    scientific: "Gallinula chloropus",
+    familyCommon: "Rails/Gallinules/Coots",
+    speciesCommon: "Common Moorhen"
   }, {
-    "audio": [
+    audio: [
       require("../audio/COOT__AMERICAN.MP3"),
     ],
-    "order":"Gruiformes",
-    "family": "Rallidae",
-    "familyCommon": "Rails/Gallinules/Coots",
-    "speciesCommon": "American Coot"
+    images: [
+      require("../images/American_coot_in_Prospect_Park_(06152).jpg"),
+      require("../images/Fulica_americana.jpg")
+    ],
+    order: "Gruiformes",
+    family: "Rallidae",
+    scientific: "Fulica americana",
+    familyCommon: "Rails/Gallinules/Coots",
+    speciesCommon: "American Coot"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CRANE__SANDHILL.MP3"),
+      require("../audio/Grus_canadensis_Denali_National_Park.ogg"),
     ],
-    "order":"Gruiformes",
-    "family": "Gruidae",
-    "familyCommon": "Cranes",
-    "speciesCommon": "Sandhill Crane"
+    images: [
+      require("../images/Sandhill_Crane_JG.jpg"),
+      require("../images/Grus_canadensis_in_flight-2618.jpg")
+    ],
+    order: "Gruiformes",
+    family: "Gruidae",
+    scientific: "Antigone canadensis",
+    familyCommon: "Cranes",
+    speciesCommon: "Sandhill Crane"
   }, {
-    "audio": [
+    audio: [
       require("../audio/KILLDEER.MP3"),
+      require("../audio/Charadrius_vociferus.ogg"),
     ],
-    "order":"Charadriiformes",
-    "family": "Charadriidae",
-    "familyCommon": "Lapwings/Plovers",
-    "speciesCommon": "Killdeer"
+    images: [
+      require("../images/1512px-Killdeer_Heislerville.png"),
+      require("../images/Kildeer_(6316766771).jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Charadriidae",
+    scientific: "Charadrius vociferus",
+    familyCommon: "Lapwings/Plovers",
+    speciesCommon: "Killdeer"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SANDPIPER__SPOTTED.MP3"),
+      require("../audio/Spotted_Sandpiper.ogg"),
     ],
-    "order":"Charadriiformes",
-    "family": "Scolopacidae",
-    "familyCommon": "Sandpipers/Phalaropes/Allies",
-    "speciesCommon": "Spotted Sandpiper"
+    images: [
+      require("../images/Actitis-macularia-005.jpg"),
+      require("../images/Actitis-macularia-004.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Scolopacidae",
+    scientific: "Actitis macularius",
+    familyCommon: "Sandpipers/Phalaropes/Allies",
+    speciesCommon: "Spotted Sandpiper"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SANDPIPER__UPLAND.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Scolopacidae",
-    "familyCommon": "Sandpipers/Phalaropes/Allies",
-    "speciesCommon": "Upland Sandpiper"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Scolopacidae",
+    familyCommon: "Sandpipers/Phalaropes/Allies",
+    speciesCommon: "Upland Sandpiper"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SNIPE__COMMON.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Scolopacidae",
-    "familyCommon": "Sandpipers/Phalaropes/Allies",
-    "speciesCommon": "Common Snipe"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Scolopacidae",
+    familyCommon: "Sandpipers/Phalaropes/Allies",
+    speciesCommon: "Common Snipe"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODCOCK__AMERICAN.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Scolopacidae",
-    "familyCommon": "Sandpipers/Phalaropes/Allies",
-    "speciesCommon": "American Woodcock"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Scolopacidae",
+    familyCommon: "Sandpipers/Phalaropes/Allies",
+    speciesCommon: "American Woodcock"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GULL__RING_BILLED.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Laridae",
-    "familyCommon": "Skuas/Gulls/Terns/Skimmers",
-    "speciesCommon": "Ring-billed Gull"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Laridae",
+    familyCommon: "Skuas/Gulls/Terns/Skimmers",
+    speciesCommon: "Ring-billed Gull"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TERN__CASPIAN.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Laridae",
-    "familyCommon": "Skuas/Gulls/Terns/Skimmers",
-    "speciesCommon": "Caspian Tern"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Laridae",
+    familyCommon: "Skuas/Gulls/Terns/Skimmers",
+    speciesCommon: "Caspian Tern"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TERN__FORSTER_S.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Laridae",
-    "familyCommon": "Skuas/Gulls/Terns/Skimmers",
-    "speciesCommon": "Forster's Tern"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Laridae",
+    familyCommon: "Skuas/Gulls/Terns/Skimmers",
+    speciesCommon: "Forster's Tern"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TERN__BLACK.MP3"),
     ],
-    "order":"Charadriiformes",
-    "family": "Laridae",
-    "familyCommon": "Skuas/Gulls/Terns/Skimmers",
-    "speciesCommon": "Black Tern"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Charadriiformes",
+    family: "Laridae",
+    familyCommon: "Skuas/Gulls/Terns/Skimmers",
+    speciesCommon: "Black Tern"
   }, {
-    "audio": [
+    audio: [
       require("../audio/DOVE__ROCK.MP3"),
     ],
-    "order":"Columbiformes",
-    "family": "Columbidae",
-    "familyCommon": "Pigeons/Doves",
-    "speciesCommon": "Rock Pigeon"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Columbiformes",
+    family: "Columbidae",
+    familyCommon: "Pigeons/Doves",
+    speciesCommon: "Rock Pigeon"
   }, {
-    "audio": [
+    audio: [
       require("../audio/DOVE__MOURNING.mp3"),
     ],
-    "order":"Columbiformes",
-    "family": "Columbidae",
-    "familyCommon": "Pigeons/Doves",
-    "speciesCommon": "Mourning Dove"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Columbiformes",
+    family: "Columbidae",
+    familyCommon: "Pigeons/Doves",
+    speciesCommon: "Mourning Dove"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CUCKOO__BLACK_BILLED.MP3"),
     ],
-    "order":"Cuculiformes",
-    "family": "Cuculidae",
-    "familyCommon": "Cuckoos/Roadrunners/Anis",
-    "speciesCommon": "Black-billed Cuckoo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Cuculiformes",
+    family: "Cuculidae",
+    familyCommon: "Cuckoos/Roadrunners/Anis",
+    speciesCommon: "Black-billed Cuckoo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/OWL__EASTERN_SCREECH.MP3"),
     ],
-    "order":"Strigiformes",
-    "family": "Strigidae",
-    "familyCommon": "Typical Owls",
-    "speciesCommon": "Eastern Screech Owl"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Strigiformes",
+    family: "Strigidae",
+    familyCommon: "Typical Owls",
+    speciesCommon: "Eastern Screech Owl"
   }, {
-    "audio": [
+    audio: [
       require("../audio/OWL__GREAT_HORNED.MP3"),
     ],
-    "order":"Strigiformes",
-    "family": "Strigidae",
-    "familyCommon": "Typical Owls",
-    "speciesCommon": "Great Horned Owl"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Strigiformes",
+    family: "Strigidae",
+    familyCommon: "Typical Owls",
+    speciesCommon: "Great Horned Owl"
   }, {
-    "audio": [
+    audio: [
       require("../audio/OWL__BARRED.MP3"),
     ],
-    "order":"Strigiformes",
-    "family": "Strigidae",
-    "familyCommon": "Typical Owls",
-    "speciesCommon": "Barred Owl"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Strigiformes",
+    family: "Strigidae",
+    familyCommon: "Typical Owls",
+    speciesCommon: "Barred Owl"
   }, {
-    "audio": [
+    audio: [
       require("../audio/OWL__NORTHERN_SAW_WHET.MP3"),
     ],
-    "order":"Strigiformes",
-    "family": "Strigidae",
-    "familyCommon": "Typical Owls",
-    "speciesCommon": "Northern Saw-whet Owl"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Strigiformes",
+    family: "Strigidae",
+    familyCommon: "Typical Owls",
+    speciesCommon: "Northern Saw-whet Owl"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WHIP_POOR_WILL.MP3"),
     ],
-    "order":"Caprimulgiformes",
-    "family": "Caprimulgidae",
-    "familyCommon": "Goatsuckers",
-    "speciesCommon": "Whip-poor-will"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Caprimulgiformes",
+    family: "Caprimulgidae",
+    familyCommon: "Goatsuckers",
+    speciesCommon: "Whip-poor-will"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SWIFT__CHIMNEY.MP3"),
     ],
-    "order":"Apodiformes",
-    "family": "Apodidae",
-    "familyCommon": "Swifts",
-    "speciesCommon": "Chimney Swift"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Apodiformes",
+    family: "Apodidae",
+    familyCommon: "Swifts",
+    speciesCommon: "Chimney Swift"
   }, {
-    "audio": [
+    audio: [
       require("../audio/HUMMINGBIRD__RUBY_THROATED.MP3"),
     ],
-    "order":"Apodiformes",
-    "family": "Trochilidae",
-    "familyCommon": "Hummingbirds",
-    "speciesCommon": "Ruby-throated Hummingbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Apodiformes",
+    family: "Trochilidae",
+    familyCommon: "Hummingbirds",
+    speciesCommon: "Ruby-throated Hummingbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/KINGFISHER__BELTED.MP3"),
     ],
-    "order":"Coraciiformes",
-    "family": "Alcedinidae",
-    "familyCommon": "Kingfishers",
-    "speciesCommon": "Belted Kingfisher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Coraciiformes",
+    family: "Alcedinidae",
+    familyCommon: "Kingfishers",
+    speciesCommon: "Belted Kingfisher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODPECKER__RED_HEADED.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Red-headed Woodpecker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Red-headed Woodpecker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODPECKER__RED_BELLIED.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Red-bellied Woodpecker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Red-bellied Woodpecker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SAPSUCKER__YELLOW_BELLIED.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Yellow-bellied Sapsucker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Yellow-bellied Sapsucker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODPECKER__DOWNY.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Downy Woodpecker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Downy Woodpecker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODPECKER__HAIRY.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Hairy Woodpecker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Hairy Woodpecker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLICKER__YELLOW_SHAFTED.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Northern Flicker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Northern Flicker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WOODPECKER__PILEATED.MP3"),
     ],
-    "order":"Piciformes",
-    "family": "Picidae",
-    "familyCommon": "Woodpeckers/Allies",
-    "speciesCommon": "Pileated Woodpecker"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Piciformes",
+    family: "Picidae",
+    familyCommon: "Woodpeckers/Allies",
+    speciesCommon: "Pileated Woodpecker"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__OLIVE_SIDED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Olive-sided Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Olive-sided Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/PEWEE__EASTERN_WOOD.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Eastern Wood-Pewee"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Eastern Wood-Pewee"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__YELLOW_BELLIED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Yellow-bellied Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Yellow-bellied Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__ACADIAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Acadian Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Acadian Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__ALDER.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Alder Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Alder Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__WILLOW.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Willow Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Willow Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__LEAST.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Least Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Least Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/PHOEBE__EASTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Eastern Phoebe"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Eastern Phoebe"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FLYCATCHER__GREAT_CRESTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Great Crested Flycatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Great Crested Flycatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/KINGBIRD__EASTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Tyrannidae",
-    "familyCommon": "Tyrant Flycatchers",
-    "speciesCommon": "Eastern Kingbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Tyrannidae",
+    familyCommon: "Tyrant Flycatchers",
+    speciesCommon: "Eastern Kingbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__BELL_S.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Bell's Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Bell's Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__YELLOW_THROATED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Yellow-throated Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Yellow-throated Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__BLUE_HEADED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Blue-headed Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Blue-headed Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__WARBLING.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Warbling Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Warbling Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__PHILADELPHIA.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Philadelphia Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Philadelphia Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VIREO__RED_EYED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Vireonidae",
-    "familyCommon": "Vireos",
-    "speciesCommon": "Red-eyed Vireo"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Vireonidae",
+    familyCommon: "Vireos",
+    speciesCommon: "Red-eyed Vireo"
   }, {
-    "audio": [
+    audio: [
       require("../audio/JAY__GREY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Corvidae",
-    "familyCommon": "Jays/Crows",
-    "speciesCommon": "Gray Jay"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Corvidae",
+    familyCommon: "Jays/Crows",
+    speciesCommon: "Gray Jay"
   }, {
-    "audio": [
+    audio: [
       require("../audio/JAY__BLUE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Corvidae",
-    "familyCommon": "Jays/Crows",
-    "speciesCommon": "Blue Jay"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Corvidae",
+    familyCommon: "Jays/Crows",
+    speciesCommon: "Blue Jay"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CROW__AMERICAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Corvidae",
-    "familyCommon": "Jays/Crows",
-    "speciesCommon": "American Crow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Corvidae",
+    familyCommon: "Jays/Crows",
+    speciesCommon: "American Crow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/RAVEN__COMMON.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Corvidae",
-    "familyCommon": "Jays/Crows",
-    "speciesCommon": "Common Raven"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Corvidae",
+    familyCommon: "Jays/Crows",
+    speciesCommon: "Common Raven"
   }, {
-    "audio": [
+    audio: [
       require("../audio/LARK__HORNED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Alaudidae",
-    "familyCommon": "Larks",
-    "speciesCommon": "Horned Lark"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Alaudidae",
+    familyCommon: "Larks",
+    speciesCommon: "Horned Lark"
   }, {
-    "audio": [
+    audio: [
       require("../audio/MARTIN__PURPLE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Hirundinidae",
-    "familyCommon": "Swallows",
-    "speciesCommon": "Purple Martin"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Hirundinidae",
+    familyCommon: "Swallows",
+    speciesCommon: "Purple Martin"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SWALLOW__TREE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Hirundinidae",
-    "familyCommon": "Swallows",
-    "speciesCommon": "Tree Swallow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Hirundinidae",
+    familyCommon: "Swallows",
+    speciesCommon: "Tree Swallow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SWALLOW__NORTHERN_ROUGH_WIN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Hirundinidae",
-    "familyCommon": "Swallows",
-    "speciesCommon": "Northern Rough-winged Swallow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Hirundinidae",
+    familyCommon: "Swallows",
+    speciesCommon: "Northern Rough-winged Swallow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SWALLOW__BANK.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Hirundinidae",
-    "familyCommon": "Swallows",
-    "speciesCommon": "Bank Swallow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Hirundinidae",
+    familyCommon: "Swallows",
+    speciesCommon: "Bank Swallow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SWALLOW__BARN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Hirundinidae",
-    "familyCommon": "Swallows",
-    "speciesCommon": "Barn Swallow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Hirundinidae",
+    familyCommon: "Swallows",
+    speciesCommon: "Barn Swallow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CHICKADEE__BLACK_CAPPED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Paridae",
-    "familyCommon": "Chickadees/Titmice",
-    "speciesCommon": "Black-capped Chickadee"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Paridae",
+    familyCommon: "Chickadees/Titmice",
+    speciesCommon: "Black-capped Chickadee"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CHICKADEE__BOREAL.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Paridae",
-    "familyCommon": "Chickadees/Titmice",
-    "speciesCommon": "Boreal Chickadee"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Paridae",
+    familyCommon: "Chickadees/Titmice",
+    speciesCommon: "Boreal Chickadee"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TITMOUSE__TUFTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Paridae",
-    "familyCommon": "Chickadees/Titmice",
-    "speciesCommon": "Tufted Titmouse"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Paridae",
+    familyCommon: "Chickadees/Titmice",
+    speciesCommon: "Tufted Titmouse"
   }, {
-    "audio": [
+    audio: [
       require("../audio/NUTHATCH__RED_BREASTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Sittidae",
-    "familyCommon": "Nuthatches",
-    "speciesCommon": "Red-breasted Nuthatch"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Sittidae",
+    familyCommon: "Nuthatches",
+    speciesCommon: "Red-breasted Nuthatch"
   }, {
-    "audio": [
+    audio: [
       require("../audio/NUTHATCH__WHITE_BREASTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Sittidae",
-    "familyCommon": "Nuthatches",
-    "speciesCommon": "White-breasted Nuthatch"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Sittidae",
+    familyCommon: "Nuthatches",
+    speciesCommon: "White-breasted Nuthatch"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CREEPER__BROWN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Certhiidae",
-    "familyCommon": "Creepers",
-    "speciesCommon": "Brown Creeper"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Certhiidae",
+    familyCommon: "Creepers",
+    speciesCommon: "Brown Creeper"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WREN__HOUSE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Troglodytidae",
-    "familyCommon": "Wrens",
-    "speciesCommon": "House Wren"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Troglodytidae",
+    familyCommon: "Wrens",
+    speciesCommon: "House Wren"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WREN__WINTER.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Troglodytidae",
-    "familyCommon": "Wrens",
-    "speciesCommon": "Winter Wren"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Troglodytidae",
+    familyCommon: "Wrens",
+    speciesCommon: "Winter Wren"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WREN__SEDGE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Troglodytidae",
-    "familyCommon": "Wrens",
-    "speciesCommon": "Sedge Wren"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Troglodytidae",
+    familyCommon: "Wrens",
+    speciesCommon: "Sedge Wren"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WREN__MARSH.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Troglodytidae",
-    "familyCommon": "Wrens",
-    "speciesCommon": "Marsh Wren"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Troglodytidae",
+    familyCommon: "Wrens",
+    speciesCommon: "Marsh Wren"
   }, {
-    "audio": [
+    audio: [
       require("../audio/KINGLET__GOLDEN_CROWNED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Regulidae",
-    "familyCommon": "Kinglets",
-    "speciesCommon": "Golden-crowned Kinglet"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Regulidae",
+    familyCommon: "Kinglets",
+    speciesCommon: "Golden-crowned Kinglet"
   }, {
-    "audio": [
+    audio: [
       require("../audio/KINGLET__RUBY_CROWNED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Regulidae",
-    "familyCommon": "Kinglets",
-    "speciesCommon": "Ruby-crowned Kinglet"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Regulidae",
+    familyCommon: "Kinglets",
+    speciesCommon: "Ruby-crowned Kinglet"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GNATCATCHER__BLUE_GREY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Sylviidae",
-    "familyCommon": "Old World Warblers/Gnatcatchers",
-    "speciesCommon": "Blue-gray Gnatcatcher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Sylviidae",
+    familyCommon: "Old World Warblers/Gnatcatchers",
+    speciesCommon: "Blue-gray Gnatcatcher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BLUEBIRD__EASTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "Eastern Bluebird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "Eastern Bluebird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/VEERY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "Veery"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "Veery"
   }, {
-    "audio": [
+    audio: [
       require("../audio/THRUSH__SWAINSON_S.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "Swainson's Thrush"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "Swainson's Thrush"
   }, {
-    "audio": [
+    audio: [
       require("../audio/THRUSH__HERMIT.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "Hermit Thrush"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "Hermit Thrush"
   }, {
-    "audio": [
+    audio: [
       require("../audio/THRUSH__WOOD.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "Wood Thrush"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "Wood Thrush"
   }, {
-    "audio": [
+    audio: [
       require("../audio/ROBIN__AMERICAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Turdidae",
-    "familyCommon": "Thrushes",
-    "speciesCommon": "American Robin"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Turdidae",
+    familyCommon: "Thrushes",
+    speciesCommon: "American Robin"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CATBIRD__GREY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Mimidae",
-    "familyCommon": "Mockingbirds/Thrashers",
-    "speciesCommon": "Gray Catbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Mimidae",
+    familyCommon: "Mockingbirds/Thrashers",
+    speciesCommon: "Gray Catbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/THRASHER__BROWN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Mimidae",
-    "familyCommon": "Mockingbirds/Thrashers",
-    "speciesCommon": "Brown Thrasher"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Mimidae",
+    familyCommon: "Mockingbirds/Thrashers",
+    speciesCommon: "Brown Thrasher"
   }, {
-    "audio": [
+    audio: [
       require("../audio/STARLING__EUROPEAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Sturnidae",
-    "familyCommon": "Starlings",
-    "speciesCommon": "European Starling"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Sturnidae",
+    familyCommon: "Starlings",
+    speciesCommon: "European Starling"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WAXWING__CEDAR.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Bombycillidae",
-    "familyCommon": "Waxwings",
-    "speciesCommon": "Cedar Waxwing"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Bombycillidae",
+    familyCommon: "Waxwings",
+    speciesCommon: "Cedar Waxwing"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BLUE_WINGED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Blue-winged Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Blue-winged Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__GOLDEN_WINGED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Golden-winged Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Golden-winged Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__TENNESSEE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Tennessee Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Tennessee Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__NASHVILLE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Nashville Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Nashville Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__PARULA.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Northern Parula"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Northern Parula"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBER__YELLOW.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Yellow Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Yellow Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__CHESTNUT_SIDED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Chestnut-sided Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Chestnut-sided Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__MAGNOLIA.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Magnolia Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Magnolia Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__CAPE_MAY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Cape May Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Cape May Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BLACK_THROATED_BLU.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Black-throated Blue Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Black-throated Blue Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__YELLOW_RUMPED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Yellow-rumped Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Yellow-rumped Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BLACK_THROATED_GRE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Black-throated Green Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Black-throated Green Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BLACKBURNIAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Blackburnian Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Blackburnian Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__YELLOW_THROATED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Yellow-throated Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Yellow-throated Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__PINE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Pine Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Pine Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__PALM.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Palm Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Palm Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BAY_BREASTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Bay-breasted Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Bay-breasted Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__CERULEAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Cerulean Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Cerulean Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__BLACK_AND_WHITE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Black-and-white Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Black-and-white Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/REDSTART__AMERICAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "American Redstart"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "American Redstart"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__PROTHONOTARY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Prothonotary Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Prothonotary Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__WORM_EATING.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Worm-eating Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Worm-eating Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/OVENBIRD.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Ovenbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Ovenbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WATERTHRUSH__NORTHERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Northern Waterthrush"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Northern Waterthrush"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WATERTHRUSH__LOUISIANA.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Louisiana Waterthrush"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Louisiana Waterthrush"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__KENTUCKY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Kentucky Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Kentucky Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__CONNECTICUT.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Connecticut Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Connecticut Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__MOURNING.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Mourning Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Mourning Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/YELLOWTHROAT__COMMON.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Common Yellowthroat"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Common Yellowthroat"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__HOODED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Hooded Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Hooded Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__WILSON_S.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Wilson's Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Wilson's Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CHAT__YELLOW_BREASTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Yellow-breasted Chat"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Yellow-breasted Chat"
   }, {
-    "audio": [
+    audio: [
       require("../audio/WARBLER__CANADA.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Parulidae",
-    "familyCommon": "Wood-Warblers",
-    "speciesCommon": "Canada Warbler"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Parulidae",
+    familyCommon: "Wood-Warblers",
+    speciesCommon: "Canada Warbler"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TANAGER__SCARLET.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Thraupidae",
-    "familyCommon": "Tanagers",
-    "speciesCommon": "Scarlet Tanager"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Thraupidae",
+    familyCommon: "Tanagers",
+    speciesCommon: "Scarlet Tanager"
   }, {
-    "audio": [
+    audio: [
       require("../audio/TOWHEE__EASTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Eastern Towhee"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Eastern Towhee"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__CHIPPING.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Chipping Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Chipping Sparrow"
   },
   // { ToDo: Find audio for Clay-colored Sparrow
-  //   "audio": [
+  //   audio: [
   // require("../audio/SPARROW__CLAY_COLORED.MP3"),
-  //   "order": "Passeriformes",
-  //   "family": "Emberizidae",
-  //   "familyCommon": "Emberizids",
-  //   "speciesCommon": "Clay-colored Sparrow"
+  //   order: "Passeriformes",
+  //   family: "Emberizidae",
+  //   familyCommon: "Emberizids",
+  //   speciesCommon: "Clay-colored Sparrow"
   // },
   {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__FIELD.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Field Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Field Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__VESPER.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Vesper Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Vesper Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__LARK.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Lark Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Lark Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__SAVANNAH.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Savannah Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Savannah Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__GRASSHOPPER.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Grasshopper Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Grasshopper Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__HENSLOW_S.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Henslow's Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Henslow's Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__SONG.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Song Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Song Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__LINCOLN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Lincoln's Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Lincoln's Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__SWAMP.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Swamp Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Swamp Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__WHITE_THROATED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "White-throated Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "White-throated Sparrow"
   }, {
-    "audio": [
+    audio: [
       require("../audio/JUNCO__DARK_EYED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Emberizidae",
-    "familyCommon": "Emberizids",
-    "speciesCommon": "Dark-eyed Junco"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    familyCommon: "Emberizids",
+    speciesCommon: "Dark-eyed Junco"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CARDINAL__NORTHERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Cardinalidae",
-    "familyCommon": "Cardinals/Saltators/Allies",
-    "speciesCommon": "Northern Cardinal"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Cardinalidae",
+    familyCommon: "Cardinals/Saltators/Allies",
+    speciesCommon: "Northern Cardinal"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GROSBEAK__ROSE_BREASTED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Cardinalidae",
-    "familyCommon": "Cardinals/Saltators/Allies",
-    "speciesCommon": "Rose-breasted Grosbeak"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Cardinalidae",
+    familyCommon: "Cardinals/Saltators/Allies",
+    speciesCommon: "Rose-breasted Grosbeak"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BUNTING__INDIGO.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Cardinalidae",
-    "familyCommon": "Cardinals/Saltators/Allies",
-    "speciesCommon": "Indigo Bunting"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Cardinalidae",
+    familyCommon: "Cardinals/Saltators/Allies",
+    speciesCommon: "Indigo Bunting"
   }, {
-    "audio": [
+    audio: [
       require("../audio/DICKCISSEL.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Cardinalidae",
-    "familyCommon": "Cardinals/Saltators/Allies",
-    "speciesCommon": "Dickcissel"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Cardinalidae",
+    familyCommon: "Cardinals/Saltators/Allies",
+    speciesCommon: "Dickcissel"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BOBOLINK.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Bobolink"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Bobolink"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BLACKBIRD__RED_WINGED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Red-winged Blackbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Red-winged Blackbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/MEADOWLARK__EASTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Eastern Meadowlark"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Eastern Meadowlark"
   }, {
-    "audio": [
+    audio: [
       require("../audio/MEADOWLARK__WESTERN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Western Meadowlark"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Western Meadowlark"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BLACKBIRD__YELLOW_HEADED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Yellow-headed Blackbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Yellow-headed Blackbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BLACKBIRD__BREWER_S.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Brewer's Blackbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Brewer's Blackbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GRACKLE__COMMON.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Common Grackle"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Common Grackle"
   }, {
-    "audio": [
+    audio: [
       require("../audio/COWBIRD__BROWN_HEADED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Brown-headed Cowbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Brown-headed Cowbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/BLACKBIRD__RUSTY.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Rusty Blackbird"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Rusty Blackbird"
   }, {
-    "audio": [
+    audio: [
       require("../audio/ORIOLE__ORCHARD.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Orchard Oriole"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Orchard Oriole"
   }, {
-    "audio": [
+    audio: [
       require("../audio/ORIOLE__BALTIMORE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Icteridae",
-    "familyCommon": "Blackbirds",
-    "speciesCommon": "Baltimore Oriole"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Icteridae",
+    familyCommon: "Blackbirds",
+    speciesCommon: "Baltimore Oriole"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FINCH__PURPLE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "Purple Finch"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "Purple Finch"
   }, {
-    "audio": [
+    audio: [
       require("../audio/FINCH__HOUSE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "House Finch"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "House Finch"
   }, {
-    "audio": [
+    audio: [
       require("../audio/CROSSBILL__WHITE_WINGED.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "White-winged Crossbill"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "White-winged Crossbill"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SISKIN__PINE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "Pine Siskin"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "Pine Siskin"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GOLDFINCH__AMERICAN.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "American Goldfinch"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "American Goldfinch"
   }, {
-    "audio": [
+    audio: [
       require("../audio/GROSBEAK__EVENING.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Fringillidae",
-    "familyCommon": "Fringilline/Cardueline Finches",
-    "speciesCommon": "Evening Grosbeak"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Fringillidae",
+    familyCommon: "Fringilline/Cardueline Finches",
+    speciesCommon: "Evening Grosbeak"
   }, {
-    "audio": [
+    audio: [
       require("../audio/SPARROW__HOUSE.MP3"),
     ],
-    "order":"Passeriformes",
-    "family": "Passeridae",
-    "familyCommon": "Old World Sparrows",
-    "speciesCommon": "House Sparrow"
+    images: [
+      require("../images/.jpg"),
+      require("../images/.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Passeridae",
+    familyCommon: "Old World Sparrows",
+    speciesCommon: "House Sparrow"
   }
 ];
 

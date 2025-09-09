@@ -16,7 +16,8 @@ function Main(props: {
 }) {
   const { mode } = props;
   const [state, setState] = useState(STATES.CLEAN);
-  const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
+  const [birdList, setBirdList] = useState <Bird[]> (birds);
+  // const [birdList, setBirdList] = useState <Bird[]> (shuffleArray(birds));
   const [bird, setBird] = useState <Bird> (birdList[0]);
   const [feedback, setFeedback] = useState <string|null> (null);
   const [stats, setStats] = useState <Stats> ({ correct: 0, total: 0, streak: 0 })
