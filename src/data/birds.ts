@@ -74,7 +74,7 @@ const birds: Bird[] =  [
   }, {
     audio: [
       require("../audio/GOOSE__CANADA.mp3"),
-      require("../audio/Branta_canadensis.mp3"),
+      require("../audio/Branta_canadensis.ogg"),
     ],
     images: [
       require("../images/Canada_goose_on_Seedskadee_NWR_(27826185489).jpg"),
@@ -88,7 +88,7 @@ const birds: Bird[] =  [
   }, {
     audio: [
       require("../audio/DUCK__WOOD.mp3"),
-      require("../audio/Aix_sponsa_-_Wood_Duck_-_XC63109.mp3"),
+      require("../audio/Aix_sponsa_-_Wood_Duck_-_XC63109.ogg"),
     ],
     images: [
       require("../images/Wood_Duck_Wissahickon_Creek.png"),
@@ -102,7 +102,7 @@ const birds: Bird[] =  [
   }, {
     audio: [
       require("../audio/MALLARD.mp3"),
-      require("../audio/Anas_platyrhynchos_-_Mallard_-_XC62258.mp3"),
+      require("../audio/Anas_platyrhynchos_-_Mallard_-_XC62258.ogg"),
     ],
     images: [
       require("../images/Anas_platyrhynchos_male_female_quadrat.jpg"),
@@ -634,7 +634,7 @@ const birds: Bird[] =  [
     ],
     images: [
       require("../images/Yellow-bellied_sapsucker_in_CP_(40484).jpg"),
-      require("../images/Yellow-bellied_sapsucker_(Sphyrapicus_varius)_female.jpg")
+      require("../images/Yellow-bellied_sapsucker_(Sphyrapicus_varius)_female.jpeg")
     ],
     order: "Piciformes",
     family: "Picidae",
@@ -1092,7 +1092,7 @@ const birds: Bird[] =  [
       require("../audio/Red_breasted_Nuthatch_Yosemite_National_Park.ogg"),
     ],
     images: [
-      require("../images/Sitta_canadensis_5563.jpg"),
+      require("../images/Sitta_canadensis_5563.jpeg"),
       require("../images/Sitta_canadensis_CT2.jpg")
     ],
     order: "Passeriformes",
@@ -1119,7 +1119,7 @@ const birds: Bird[] =  [
     ],
     images: [
       require("../images/Brown_creeper_at_a_banding_station_(90455).jpg"),
-      require("../images/Brown_creeper_(Certhia_americana)_in_Center_City,_Philadelphia,_PA,_USA.jpg")
+      require("../images/Brown_creeper_(Certhia_americana)_in_Center_City,_Philadelphia,_PA,_USA.png")
     ],
     order: "Passeriformes",
     family: "Certhiidae",
@@ -1505,25 +1505,29 @@ const birds: Bird[] =  [
   }, {
     audio: [
       require("../audio/WARBLER__BLACK_THROATED_GRE.MP3"),
+      require("../audio/Setophaga_virens_-_Black-throated_Green_Warbler_-_XC101293.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Black-throated_green_warbler_in_PP_(14050).jpg"),
+      require("../images/Black-throated_Green_Warbler_by_Dan_Pancamo.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga virens",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Black-throated Green Warbler"
   }, {
     audio: [
       require("../audio/WARBLER__BLACKBURNIAN.MP3"),
+      require("../audio/Setophaga_fusca_-_Blackburnian_Warbler_XC142594.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Blackburnian_warbler_(Setophaga_fusca)_male_San_Isidro.jpg"),
+      require("../images/Blackburnian_warbler_(71064).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga fusca",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Blackburnian Warbler"
   }, {
@@ -1531,11 +1535,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__YELLOW_THROATED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Yellow-throated_Warbler_2.jpg"),
+      require("../images/Yellow-throated_Warbler_on_territory.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga dominica",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Yellow-throated Warbler"
   }, {
@@ -1543,11 +1548,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__PINE.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Pine_warbler_(90070).jpg"),
+      require("../images/Pine_Warbler_-_female.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga pinus",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Pine Warbler"
   }, {
@@ -1555,11 +1561,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__PALM.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Palm_warbler_(41597).jpg"),
+      require("../images/A_palm_warbler.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga palmarum",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Palm Warbler"
   }, {
@@ -1567,11 +1574,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__BAY_BREASTED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Dendroica-castanea-001.jpg"),
+      require("../images/Bay-breasted_warbler_in_Central_Park_(43472).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga castanea",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Bay-breasted Warbler"
   }, {
@@ -1579,11 +1587,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__CERULEAN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Cerulean_Warbler.jpg"),
+      require("../images/Cerulean_Warbler_close-up.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga cerulea",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Cerulean Warbler"
   }, {
@@ -1591,11 +1600,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__BLACK_AND_WHITE.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Black-and-white_warbler_in_Prospect_Park_(06193)2.jpg"),
+      require("../images/Black-and-white_Warbler_2.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Mniotilta varia",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Black-and-white Warbler"
   }, {
@@ -1603,11 +1613,12 @@ const birds: Bird[] =  [
       require("../audio/REDSTART__AMERICAN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Setophaga_ruticilla.jpg"),
+      require("../images/AmericanRedstart17.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga ruticilla",
     familyCommon: "Wood-Warblers",
     speciesCommon: "American Redstart"
   }, {
@@ -1615,11 +1626,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__PROTHONOTARY.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Protonotaria-citrea-002_edit.jpg"),
+      require("../images/D8G7D2390.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Protonotaria citrea",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Prothonotary Warbler"
   }, {
@@ -1627,11 +1639,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__WORM_EATING.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Worm-eating_Warbler.jpg"),
+      require("../images/BOTW-featured-image_Worm-eating-Warbler.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Helmitheros vermivorum",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Worm-eating Warbler"
   }, {
@@ -1639,11 +1652,12 @@ const birds: Bird[] =  [
       require("../audio/OVENBIRD.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Ovenbird_(90497).jpg"),
+      require("../images/ovenbird.webp")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Seiurus aurocapilla",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Ovenbird"
   }, {
@@ -1651,11 +1665,12 @@ const birds: Bird[] =  [
       require("../audio/WATERTHRUSH__NORTHERN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Northern_waterthrush_in_Central_Park_(14717).jpg"),
+      require("../images/Northern_Waterthrush_Tex.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Parkesia noveboracensis",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Northern Waterthrush"
   }, {
@@ -1663,11 +1678,12 @@ const birds: Bird[] =  [
       require("../audio/WATERTHRUSH__LOUISIANA.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Louisiana_waterthrush_(Parkesia_motacilla).jpg"),
+      require("../images/Louisiana-waterthrush-2_(cropped).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Parkesia motacilla",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Louisiana Waterthrush"
   }, {
@@ -1675,11 +1691,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__KENTUCKY.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Kentucky_Warbler1_Tex.jpg"),
+      require("../images/Kentucky_Warbler2_Tex.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Geothlypis formosa",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Kentucky Warbler"
   }, {
@@ -1687,11 +1704,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__CONNECTICUT.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Oporornis_agilis_Youghiogheny_River_MD.jpg"),
+      require("../images/75339871-1200px.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Oporornis agilis",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Connecticut Warbler"
   }, {
@@ -1699,23 +1717,26 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__MOURNING.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Geothlypis_philadelphia_289725142_(cropped).jpg"),
+      require("../images/mourning_warbler.webp")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Geothlypis philadelphia",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Mourning Warbler"
   }, {
     audio: [
       require("../audio/YELLOWTHROAT__COMMON.MP3"),
+      require("../audio/Yellowstone_sound_library_-_Common_Yellowthroat_-_001.mp3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Common_yellowthroat_in_PP_(14155).jpg"),
+      require("../images/Common_Yellowthroat,_Finley_NWR_(13887001167).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Geothlypis trichas",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Common Yellowthroat"
   }, {
@@ -1723,23 +1744,26 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__HOODED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Hooded_Warbler.jpg"),
+      require("../images/Hooded_Warbler_f_02.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Setophaga citrina",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Hooded Warbler"
   }, {
     audio: [
       require("../audio/WARBLER__WILSON_S.MP3"),
+      require("../audio/Cardellina_pusilla_-_Wilson's_Warbler_-_XC108402.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Wilsonia_pusilla.jpg"),
+      require("../images/Wilson's_warbler_in_PP_(14375).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Cardellina pusilla",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Wilson's Warbler"
   }, {
@@ -1747,11 +1771,12 @@ const birds: Bird[] =  [
       require("../audio/CHAT__YELLOW_BREASTED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Yellow-Breasted-Chat-Oregon.jpg"),
+      require("../images/Yellow-breasted_chat_eating_a_snail_(06390).jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Icteria virens",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Yellow-breasted Chat"
   }, {
@@ -1759,11 +1784,12 @@ const birds: Bird[] =  [
       require("../audio/WARBLER__CANADA.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Canada_warbler_(Cardellina_canadensis)_male_San_Isidro.jpg"),
+      require("../images/Canada_Warbler_on_Bough.jpg")
     ],
     order: "Passeriformes",
     family: "Parulidae",
+    scientific: "Cardellina canadensis",
     familyCommon: "Wood-Warblers",
     speciesCommon: "Canada Warbler"
   }, {
@@ -1771,56 +1797,66 @@ const birds: Bird[] =  [
       require("../audio/TANAGER__SCARLET.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Piranga_olivacea1.jpg"),
+      require("../images/Scarlet_tanager_in_GWC_(50867).jpg")
     ],
     order: "Passeriformes",
     family: "Thraupidae",
+    scientific: "Piranga olivacea",
     familyCommon: "Tanagers",
     speciesCommon: "Scarlet Tanager"
   }, {
     audio: [
       require("../audio/TOWHEE__EASTERN.MP3"),
+      require("../audio/Pipilo_erythrophthalmus_-_Eastern_Towhee_-_XC81298.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/20241004_eastern_towhee_pleasant_valley_PD207764.jpg"),
+      require("../images/Pipilo_erythrophthalmus.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Pipilo erythrophthalmus",
     familyCommon: "Emberizids",
     speciesCommon: "Eastern Towhee"
   }, {
     audio: [
       require("../audio/SPARROW__CHIPPING.MP3"),
+      require("../audio/Spizella_passerina_vocalizations_-_pone.0027052.s005.oga"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Spizella-passerina-015_edit.jpg"),
+      require("../images/Sparrow_at_Feeder_Portrait.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Spizella passerina",
     familyCommon: "Emberizids",
     speciesCommon: "Chipping Sparrow"
-  },
-  // { ToDo: Find audio for Clay-colored Sparrow
-  //   audio: [
-  // require("../audio/SPARROW__CLAY_COLORED.MP3"),
-  //   order: "Passeriformes",
-  //   family: "Emberizidae",
-  //   familyCommon: "Emberizids",
-  //   speciesCommon: "Clay-colored Sparrow"
-  // },
-  {
+  }, {
+    audio: [
+      require("../audio/XC1014341_Clay-colored_Sparrow.wav"),
+    ],
+    images: [
+      require("../images/Spizella_pallida4_edit.jpg"),
+      require("../images/Clay-colored_Sparrow_Tex.jpg")
+    ],
+    order: "Passeriformes",
+    family: "Emberizidae",
+    scientific: "Spizella pallida",
+    familyCommon: "Emberizids",
+    speciesCommon: "Clay-colored Sparrow"
+  }, {
     audio: [
       require("../audio/SPARROW__FIELD.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Field_sparrow_in_CP_(41484)_(cropped).jpg"),
+      require("../images/Field_sparrow_in_CP_(41514).jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Spizella pusilla",
     familyCommon: "Emberizids",
     speciesCommon: "Field Sparrow"
   }, {
@@ -1828,11 +1864,12 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__VESPER.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Pooecetes_gramineus_-USA-8_(cropped).jpg"),
+      require("../images/vesper_sparrow.webp")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Pooecetes gramineus",
     familyCommon: "Emberizids",
     speciesCommon: "Vesper Sparrow"
   }, {
@@ -1840,11 +1877,12 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__LARK.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/LarkSparrow.jpg"),
+      require("../images/LarkSparrow-7DEC2017.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Chondestes grammacus",
     familyCommon: "Emberizids",
     speciesCommon: "Lark Sparrow"
   }, {
@@ -1852,23 +1890,26 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__SAVANNAH.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Passerculus_sandwichensis_crop.jpg"),
+      require("../images/Ipswich_Savannah_sparrow.png")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Passerculus sandwichensis",
     familyCommon: "Emberizids",
     speciesCommon: "Savannah Sparrow"
   }, {
     audio: [
       require("../audio/SPARROW__GRASSHOPPER.MP3"),
+      require("../audio/Ammodramus_savannarum_-_Grasshopper_Sparrow_-_XC104530.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Ammodramus_savannarum_160849415_(cropped).jpg"),
+      require("../images/Grasshopper_Sparrow.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Ammodramus savannarum",
     familyCommon: "Emberizids",
     speciesCommon: "Grasshopper Sparrow"
   }, {
@@ -1876,11 +1917,12 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__HENSLOW_S.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Henslow's_Sparrow_(WORKS)_(32593335156)_(cropped).jpg"),
+      require("../images/henslows_sparrow.webp")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Centronyx henslowii",
     familyCommon: "Emberizids",
     speciesCommon: "Henslow's Sparrow"
   }, {
@@ -1888,11 +1930,12 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__SONG.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Song_sparrow_in_Prospect_Park_(93031).jpg"),
+      require("../images/Melospiza_melodia.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Melospiza melodia",
     familyCommon: "Emberizids",
     speciesCommon: "Song Sparrow"
   }, {
@@ -1900,11 +1943,12 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__LINCOLN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Lincoln_Sparrow_(34945695136)_(cropped).jpg"),
+      require("../images/LincolnsSparrow-30DEC2017.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Melospiza lincolnii",
     familyCommon: "Emberizids",
     speciesCommon: "Lincoln's Sparrow"
   }, {
@@ -1912,23 +1956,26 @@ const birds: Bird[] =  [
       require("../audio/SPARROW__SWAMP.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Melospiza_georgiana_MP_01,_crop.jpg"),
+      require("../images/SwampSparrow.jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Melospiza georgiana",
     familyCommon: "Emberizids",
     speciesCommon: "Swamp Sparrow"
   }, {
     audio: [
       require("../audio/SPARROW__WHITE_THROATED.MP3"),
+      require("../audio/Voice_of_Zonotrichia_albicollis.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Zonotrichia_albicollis_CT1.jpg"),
+      require("../images/White-throated_sparrow_in_CP_close_up_(02081).jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Zonotrichia albicollis",
     familyCommon: "Emberizids",
     speciesCommon: "White-throated Sparrow"
   }, {
@@ -1936,11 +1983,12 @@ const birds: Bird[] =  [
       require("../audio/JUNCO__DARK_EYED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Junco_hyemalis_hyemalis_CT1_(cropped).jpg"),
+      require("../images/Dark-eyed_junco_(21840).jpg")
     ],
     order: "Passeriformes",
     family: "Emberizidae",
+    scientific: "Junco hyemalis",
     familyCommon: "Emberizids",
     speciesCommon: "Dark-eyed Junco"
   }, {
@@ -1948,11 +1996,12 @@ const birds: Bird[] =  [
       require("../audio/CARDINAL__NORTHERN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Male_northern_cardinal_in_Central_Park_(52612).jpg"),
+      require("../images/Northern_cardinal_female_in_CP_(02035).jpg")
     ],
     order: "Passeriformes",
     family: "Cardinalidae",
+    scientific: "Cardinalis cardinalis",
     familyCommon: "Cardinals/Saltators/Allies",
     speciesCommon: "Northern Cardinal"
   }, {
@@ -1960,11 +2009,12 @@ const birds: Bird[] =  [
       require("../audio/GROSBEAK__ROSE_BREASTED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/RosebreastedGrosbeak08.jpg"),
+      require("../images/rose-breasted_grossbeak.webp")
     ],
     order: "Passeriformes",
     family: "Cardinalidae",
+    scientific: "Pheucticus ludovicianus",
     familyCommon: "Cardinals/Saltators/Allies",
     speciesCommon: "Rose-breasted Grosbeak"
   }, {
@@ -1972,23 +2022,26 @@ const birds: Bird[] =  [
       require("../audio/BUNTING__INDIGO.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Indigo_Bunting_by_Dan_Pancamo_4.jpg"),
+      require("../images/indigo_bunting.webp")
     ],
     order: "Passeriformes",
     family: "Cardinalidae",
+    scientific: "Passerina cyanea",
     familyCommon: "Cardinals/Saltators/Allies",
     speciesCommon: "Indigo Bunting"
   }, {
     audio: [
+      require("../audio/Spiza_americana_-_Dickcissel_-_XC82764.ogg"),
       require("../audio/DICKCISSEL.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/927_-_DICKCISSEL_(5-28-2018)_rick_evans.jpg"),
+      require("../images/927_-_DICKCISSEL_(5-28-2018).jpg")
     ],
     order: "Passeriformes",
     family: "Cardinalidae",
+    scientific: "Spiza americana",
     familyCommon: "Cardinals/Saltators/Allies",
     speciesCommon: "Dickcissel"
   }, {
@@ -1996,23 +2049,26 @@ const birds: Bird[] =  [
       require("../audio/BOBOLINK.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/20250702_adult_male_bobolink.jpg"),
+      require("../images/Bobolink_singing_Shawangunk_(31748).jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Dolichonyx oryzivorus",
     familyCommon: "Blackbirds",
     speciesCommon: "Bobolink"
   }, {
     audio: [
       require("../audio/BLACKBIRD__RED_WINGED.MP3"),
+      require("../audio/Agelaius-phoeniceus-001.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Agelaius_phoeniceus_0110_taxo.jpg"),
+      require("../images/Red_winged_blackbird_-_natures_pics.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Agelaius phoeniceus",
     familyCommon: "Blackbirds",
     speciesCommon: "Red-winged Blackbird"
   }, {
@@ -2020,23 +2076,26 @@ const birds: Bird[] =  [
       require("../audio/MEADOWLARK__EASTERN.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Two_meadows.jpg"),
+      require("../images/Eastern_meadowlark.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Sturnella magna",
     familyCommon: "Blackbirds",
     speciesCommon: "Eastern Meadowlark"
   }, {
     audio: [
       require("../audio/MEADOWLARK__WESTERN.MP3"),
+      require("../audio/Sturnella_neglecta_-_Western_Meadowlark_-_XC76505.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Sturnella_neglecta_GNP_02.jpg"),
+      require("../images/Western_Meadowlark_in_Wyoming.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Sturnella neglecta",
     familyCommon: "Blackbirds",
     speciesCommon: "Western Meadowlark"
   }, {
@@ -2044,47 +2103,54 @@ const birds: Bird[] =  [
       require("../audio/BLACKBIRD__YELLOW_HEADED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Male_Yellow-headed_Blackbird.jpg"),
+      require("../images/Yellow-headed_Blackbird_Tex.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Xanthocephalus xanthocephalus",
     familyCommon: "Blackbirds",
     speciesCommon: "Yellow-headed Blackbird"
   }, {
     audio: [
       require("../audio/BLACKBIRD__BREWER_S.MP3"),
+      require("../audio/Euphagus_cyanocephalus_-_Brewer's_Blackbird_-_XC104520.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Brewers_Blackbird_Esquimalt_Lagoon.jpg"),
+      require("../images/Brewer's_Blackbird_puffed_up.jpeg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Euphagus cyanocephalus",
     familyCommon: "Blackbirds",
     speciesCommon: "Brewer's Blackbird"
   }, {
     audio: [
       require("../audio/GRACKLE__COMMON.MP3"),
+      require("../audio/Quiscalus_quiscula_-_Common_Grackle_-_XC99545.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Common_grackle_in_PP_(36732).jpg"),
+      require("../images/Common_grackle_iridescence_in_CP_(43218).jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Quiscalus quiscula",
     familyCommon: "Blackbirds",
     speciesCommon: "Common Grackle"
   }, {
     audio: [
       require("../audio/COWBIRD__BROWN_HEADED.MP3"),
+      require("../audio/LS110137_BHCO_B_Brown-headed_cowbird_one_call.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Brown-headed_cowbird_male_(71126).jpg"),
+      require("../images/Cowbirdsincourtship.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Molothrus ater",
     familyCommon: "Blackbirds",
     speciesCommon: "Brown-headed Cowbird"
   }, {
@@ -2092,11 +2158,12 @@ const birds: Bird[] =  [
       require("../audio/BLACKBIRD__RUSTY.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Euphagus-carolinus-001.jpg"),
+      require("../images/rusty_blackbird.webp")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Euphagus carolinus",
     familyCommon: "Blackbirds",
     speciesCommon: "Rusty Blackbird"
   }, {
@@ -2104,23 +2171,26 @@ const birds: Bird[] =  [
       require("../audio/ORIOLE__ORCHARD.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Orchard_Oriole_by_Dan_Pancamo_1.jpg"),
+      require("../images/Orchard_oriole_(Icterus_spurius)_male_Los_Tarrales.jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Icterus spurius",
     familyCommon: "Blackbirds",
     speciesCommon: "Orchard Oriole"
   }, {
     audio: [
       require("../audio/ORIOLE__BALTIMORE.MP3"),
+      require("../audio/Baltimore_oriole.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Baltimore_Oriole-_dorsum.jpg"),
+      require("../images/Audubon_Oriole_(Male).jpg")
     ],
     order: "Passeriformes",
     family: "Icteridae",
+    scientific: "Icterus galbula",
     familyCommon: "Blackbirds",
     speciesCommon: "Baltimore Oriole"
   }, {
@@ -2128,23 +2198,26 @@ const birds: Bird[] =  [
       require("../audio/FINCH__PURPLE.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Carpodacus_purpureus_CT3.jpg"),
+      require("../images/Purple_Finch_on_a_Fir_branch.jpg")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Haemorhous purpureus",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "Purple Finch"
   }, {
     audio: [
       require("../audio/FINCH__HOUSE.MP3"),
+      require("../audio/Carpodacus_mexicanus.oga"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/House_finch_(33688)2.jpg"),
+      require("../images/Common_House_Finch_on_Branch.jpg")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Haemorhous mexicanus",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "House Finch"
   }, {
@@ -2152,59 +2225,68 @@ const birds: Bird[] =  [
       require("../audio/CROSSBILL__WHITE_WINGED.MP3"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Whitewingedcrossbillmale09.jpg"),
+      require("../images/white_winged_crossbill.webp")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Loxia leucoptera",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "White-winged Crossbill"
   }, {
     audio: [
       require("../audio/SISKIN__PINE.MP3"),
+      require("../audio/Carduelis_pinus_-_Pine_Siskin_-_XC70423.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Carduelis_pinus_CT7.jpg"),
+      require("../images/pine_siskin.webp")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Spinus pinus",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "Pine Siskin"
   }, {
     audio: [
       require("../audio/GOLDFINCH__AMERICAN.MP3"),
+      require("../audio/30goldfinch.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Carduelis_tristis_-Michigan,_USA_-male-8.jpg"),
+      require("../images/American_Goldfinch-27527.jpg")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Spinus tristis",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "American Goldfinch"
   }, {
     audio: [
       require("../audio/GROSBEAK__EVENING.MP3"),
+      require("../audio/Hesperiphona_vespertina.ogg"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/Hesperiphona_vespertina_CT3.jpg"),
+      require("../images/Evening_Grosbeak_Male.jpg")
     ],
     order: "Passeriformes",
     family: "Fringillidae",
+    scientific: "Hesperiphona vespertina",
     familyCommon: "Fringilline/Cardueline Finches",
     speciesCommon: "Evening Grosbeak"
   }, {
     audio: [
       require("../audio/SPARROW__HOUSE.MP3"),
+      require("../audio/House_Sparrow_(Passer_domesticus)_call.wav"),
     ],
     images: [
-      require("../images/.jpg"),
-      require("../images/.jpg")
+      require("../images/House_sparrow_male_in_Prospect_Park_(53532).jpg"),
+      require("../images/House_Sparrow,_England_-_May_09.jpg")
     ],
     order: "Passeriformes",
     family: "Passeridae",
+    scientific: "Passer domesticus",
     familyCommon: "Old World Sparrows",
     speciesCommon: "House Sparrow"
   }
