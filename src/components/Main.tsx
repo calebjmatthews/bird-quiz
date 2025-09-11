@@ -10,6 +10,7 @@ import shuffleArray from "../data/shuffleArray";
 import Stats from "../data/stats";
 import { GAME_MODES, STATES } from "../data/enums";
 import "../index.css";
+import BirdCard from "./BirdCard";
 
 function Main(props: {
   mode: GAME_MODES
@@ -32,12 +33,7 @@ function Main(props: {
   const handleAnswer = (isCorrect: boolean) => {
     if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
     if (isCorrect) {
-      setFeedback(
-        <span>
-          {`That's correct, the ${bird.speciesCommon} `}
-          <em>{`(${bird.scientific})`}</em>!
-        </span>
-      );
+      setFeedback(<span>{`That's correct!`}</span>);
       setStats({
         correct: (stats.correct + 1),
         total: (stats.total + 1),
@@ -45,12 +41,7 @@ function Main(props: {
       });
     }
     else {
-      setFeedback(
-        <span>
-          {`Sorry, that's incorrect. It's the ${bird.speciesCommon} `}
-          <em>{`(${bird.scientific})`}</em>.
-        </span>
-      );
+      setFeedback(<span>{`Sorry, that's incorrect.`}</span>);
       setStats({
         correct: stats.correct,
         total: (stats.total + 1),
@@ -105,7 +96,10 @@ function Main(props: {
           <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
         )}
         {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-          <p className="panel">{feedback}</p>
+          <>
+            <p className="panel">{feedback}</p>
+            <BirdCard bird={bird} />
+          </>
         )}
       </div>
     </>

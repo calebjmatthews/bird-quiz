@@ -361,3 +361,30 @@ button {
     width: auto;
   }
 }
+
+.bird-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: min(280px, calc(100vw - 32px));
+  max-width: min(280px, calc(100vw - 32px));
+  color: #4c6992;
+  background-color: #27365d;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+}
+
+.bird-card-image {
+  max-height: 280px;
+  margin: auto;
+}
+
+.bird-card-body {
+  padding: 8px;
+  background-color: #fff;
+}
+
+.bird-card-caption {
+  display: flex;
+  flex-direction: column;
+}
