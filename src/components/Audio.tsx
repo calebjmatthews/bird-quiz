@@ -28,6 +28,20 @@ function Audio(props: {
   }, [state]);
 
   useEffect(() => {
+    if (audioPlayer.current) {
+      console.log(`Attaching audioPlayer timeupdate`);
+      audioPlayer.current.addEventListener("timeupdate", () => {
+        if (!audioPlayer.current) return;
+        if (audioPlayer.current.currentTime >= 10) {
+          audioPlayer.current.pause();
+          audioPlayer.current.currentTime = 0;
+          audioPlayer.current.dispatchEvent(new Event("ended"));
+        }
+      });
+    }
+  }, [audioPlayer]);
+
+  useEffect(() => {
     if (abortAudio) {
       setAbortAudio(false);
       if (audioPlayer.current) {
@@ -47,6 +61,12 @@ function Audio(props: {
       audioButtonPress();
     }
   }, [replayAudio]);
+
+  const getAudioDuration = (audioPlayer: React.RefObject<HTMLAudioElement|null>) => (
+    (audioPlayer?.current?.duration || 10) <= 10
+    ? (audioPlayer?.current?.duration || 10)
+    : 10
+  );
 
   const birdAudio = useMemo(() => (
     bird ? bird.audio[Math.floor(Math.random() * bird.audio.length)] : null
@@ -99,7 +119,7 @@ function Audio(props: {
     audioPlayer.current.play();
     setButtonBackgroundStyle({
       transform: "scaleX(200%)",
-      transitionDuration: `${audioPlayer.current.duration}s`
+      transitionDuration: `${getAudioDuration(audioPlayer)}s`
     });
   }, [audioPlayer]);
 
@@ -107,7 +127,7 @@ function Audio(props: {
     if (!audioPlayer.current) return;
     audioPlayer.current.pause();
     const scalePercent = (100 - (
-      -(audioPlayer.current.currentTime - audioPlayer.current.duration) / audioPlayer.current.duration
+      -(audioPlayer.current.currentTime - getAudioDuration(audioPlayer)) / getAudioDuration(audioPlayer)
     ) * 100) * 2;
     setButtonBackgroundStyle({
       transform: `scaleX(${scalePercent}%)`,
@@ -120,7 +140,7 @@ function Audio(props: {
     audioPlayer.current.play();
     setButtonBackgroundStyle({
       transform: "scaleX(200%)",
-      transitionDuration: `${audioPlayer.current.duration - audioPlayer.current.currentTime}s`
+      transitionDuration: `${getAudioDuration(audioPlayer) - audioPlayer.current.currentTime}s`
     });
   }, [audioPlayer]);
 
