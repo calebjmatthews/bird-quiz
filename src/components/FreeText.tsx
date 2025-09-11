@@ -4,7 +4,7 @@ import Fuse from "fuse.js";
 import Bird from "../data/bird";
 import birds from "../data/birds";
 
-const fuse = new Fuse(birds, { keys: ['speciesCommon'], includeMatches: true, findAllMatches: true });
+const fuse = new Fuse(birds, { keys: ['speciesCommon', 'scientific'], includeMatches: true, findAllMatches: true });
 
 function FreeText(props: {
   bird: Bird,
@@ -56,7 +56,8 @@ function FreeText(props: {
               className="search-match"
               onClick={() => onMatchPress(match)}
             >
-              {match.speciesCommon}
+              <span>{match.speciesCommon}</span>
+              <em>{` (${match.scientific})`}</em>
             </li>
           ))}
         </ul>

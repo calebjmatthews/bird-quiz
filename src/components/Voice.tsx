@@ -9,7 +9,7 @@ import float32ToWav from "../data/float32ToWav";
 import { COMMANDS, MIC_STATES, STATES } from "../data/enums";
 
 const fuse = new Fuse(birdsAndCommands, {
-  keys: ['speciesCommon', 'value'],
+  keys: ['speciesCommon', 'scientific', 'value'],
   includeMatches: true,
   findAllMatches: true
 });

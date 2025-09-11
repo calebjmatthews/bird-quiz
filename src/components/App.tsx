@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Main from "./Main";
+import birds from '../data/birds';
 import { GAME_MODES } from "../data/enums";
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
       <h1 className="app-heading">
         <span>E.R.M.</span>
         <span className="app-heading-explaination">(Environmental Recording Match)</span>
-        <span>Bird Quiz!</span>
+        <span>Bird Quiz</span>
+        <span className="app-heading-explaination">{`Featuring ${birds.length} Wisconsin birds!`}</span>
       </h1>
       <p className="bare-text">Pick a mode:</p>
       <section className="choice-container">

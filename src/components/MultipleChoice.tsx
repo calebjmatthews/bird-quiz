@@ -44,7 +44,8 @@ function MultipleChoice(props: {
           className="choice-button"
           onClick={() => optionPress(option)}
         >
-          {option.speciesCommon}
+          <span>{option.speciesCommon}</span>
+          <em>{`(${option.scientific})`}</em>
         </button>
       ))}
     </section>
