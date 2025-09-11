@@ -56,8 +56,25 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(25deg, #272cbe 0%, #04c 8%, #0059d6 17%, #006ce0 25%, #0078e0 33%, #008ae6 42%, #0099e6 50%, #00a8e6 58%, #35b2e3 67%, #60bfe2 75%, #82cce3 83%, #a4d9e5 92%, #c0e2e8 100%);
+  background-image: linear-gradient(
+    20deg,
+    hsl(223deg 67% 64%) 0%,
+    hsl(223deg 67% 66%) 8%,
+    hsl(223deg 68% 68%) 17%,
+    hsl(223deg 69% 70%) 25%,
+    hsl(223deg 70% 72%) 33%,
+    hsl(223deg 71% 74%) 42%,
+    hsl(223deg 72% 77%) 50%,
+    hsl(223deg 73% 79%) 58%,
+    hsl(223deg 75% 81%) 67%,
+    hsl(223deg 77% 83%) 75%,
+    hsl(223deg 79% 85%) 83%,
+    hsl(223deg 82% 87%) 92%,
+    hsl(222deg 86% 89%) 100%
+  );
+  min-height: fit-content;
   height: 100%;
+  padding-bottom: 16px;
 }
 
 .responsive-container {
@@ -68,7 +85,7 @@ button {
 
 .bare-text {
   color: white;
-  text-shadow: 1px 1px 2px #0000005e;
+      text-shadow: .3px 1px 2px #333f5eb5;
 }
 
 .app-heading {
@@ -79,7 +96,7 @@ button {
   margin-bottom: 16px;
   font-size: 42px;
   color: #fff;
-  text-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+      text-shadow: .3px 1px 2px #333f5eb5;
   font-weight: bold;
 }
 
@@ -94,7 +111,7 @@ button {
   width: 100%;
   color: #4c6992;
   background-color: #fff;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
 
 .page-header-contents {
@@ -145,7 +162,7 @@ button {
   border-radius: 50%;
   padding: 8px;
   border: 6px groove #78a5e6;;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
   transition-property: box-shadow, background-color, border-color;
   transition-duration: 0.2s;
 
@@ -200,7 +217,7 @@ button {
   color: #4c6992;
   border: 1px solid #4c6992;
   border-radius: 4px;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
 
 .choice-button-title {
@@ -212,7 +229,7 @@ button {
   align-items: center;
   gap: 4px;
   color: #4c6992;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 
   svg {
     width: 20px;
@@ -230,7 +247,7 @@ button {
   background-color: #fff;
   border-radius: 8px;
   color: #4c6992;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
 
 .input-container {
@@ -246,7 +263,7 @@ button {
   align-items: stretch;
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
 
 .input {
@@ -371,7 +388,7 @@ button {
   color: #4c6992;
   background-color: #27365d;
   border-radius: 16px;
-  box-shadow: 0 2px 4px #00000029, 0 4px 8px #0000001a, 0 8px 16px #00000012, 0 16px 32px #0000000d;
+  box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
 
 .bird-card-image {
