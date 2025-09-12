@@ -142,3 +142,4 @@ vite.config.ts.timestamp-*
 speech_cache
 /src/images
 /src/audio
+/src/responses

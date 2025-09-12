@@ -7,4 +7,5 @@ export default interface Bird {
   scientific: string;
   familyCommon: string;
   speciesCommon: string;
+  responses: any[];
 };

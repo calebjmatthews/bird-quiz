@@ -85,6 +85,7 @@ function Voice(props: {
       else {
         setMicState(MIC_STATES.RECORDING);
         startMic();
+        // const isCorrect = 
         handleAnswer(closestMatch.speciesCommon === bird.speciesCommon);
       };
     }

@@ -29,7 +29,6 @@ function Audio(props: {
 
   useEffect(() => {
     if (audioPlayer.current) {
-      console.log(`Attaching audioPlayer timeupdate`);
       audioPlayer.current.addEventListener("timeupdate", () => {
         if (!audioPlayer.current) return;
         if (audioPlayer.current.currentTime >= 10) {
