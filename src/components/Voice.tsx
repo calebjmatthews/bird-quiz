@@ -46,16 +46,23 @@ function Voice(props: {
       setMicState(MIC_STATES.PROCESSING);
       const speechBuffer = new Float32Array(Object.values(speech));
       const blob = float32ToWav(speechBuffer, 16000);
-      const speechToTextResult = await fetch("/speech", {
-        method: "POST",
-        headers: { "Content-Type": "application/octet-stream" },
-        body: blob
-      });
-      const speechTextObj = await speechToTextResult.json();
-      if (speechTextObj?.speechText?.length > 2) {
-        setSpeechText(speechTextObj.speechText);
+      try {
+        const speechToTextResult = await fetch("/speech", {
+          method: "POST",
+          headers: { "Content-Type": "application/octet-stream" },
+          body: blob
+        });
+        const speechTextObj = await speechToTextResult.json();
+        if (speechTextObj?.speechText?.length > 2) {
+          setSpeechText(speechTextObj.speechText);
+        }
+        else {
+          setMicState(MIC_STATES.RECORDING);
+          startMic();
+        }
       }
-      else {
+      catch(err) {
+        console.error(err);
         setMicState(MIC_STATES.RECORDING);
         startMic();
       }
@@ -85,11 +92,10 @@ function Voice(props: {
       else {
         setMicState(MIC_STATES.RECORDING);
         startMic();
-        // const isCorrect = 
         handleAnswer(closestMatch.speciesCommon === bird.speciesCommon);
       };
     }
-    else if (speechText && state === STATES.ANSWERED){
+    else if (speechText && state === STATES.ANSWERED) {
       const matches = fuse.search(speechText);
       setLastSpeechText(speechText);
       setSpeechText(null);
@@ -123,6 +129,7 @@ function Voice(props: {
       case STATES.PLAYING:
       case STATES.REPLAYING:
       case STATES.REVIEWING:
+      case STATES.LISTENING_REPLY:
         stopMic();
         setMicState(MIC_STATES.PAUSED);
         break;

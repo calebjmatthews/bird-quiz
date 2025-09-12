@@ -11,6 +11,7 @@ import Stats from "../data/stats";
 import { GAME_MODES, STATES } from "../data/enums";
 import "../index.css";
 import BirdCard from "./BirdCard";
+import VoiceResponse from "./VoiceResponse";
 
 function Main(props: {
   mode: GAME_MODES
@@ -23,6 +24,7 @@ function Main(props: {
   const [stats, setStats] = useState <Stats> ({ correct: 0, total: 0, streak: 0 })
   const [abortAudio, setAbortAudio] = useState(false);
   const [replayAudio, setReplayAudio] = useState(false);
+  const [responseAudio, setResponseAudio] = useState <any> (null);
 
   const pickBird = useCallback(() => {
     const nextBirdList = birdList.slice(1);
@@ -48,7 +50,14 @@ function Main(props: {
         streak: 0
       });
     }
-    setState(STATES.ANSWERED);
+
+    if (mode !== GAME_MODES.VOICE_INPUT) {
+      setState(STATES.ANSWERED);
+      return;
+    }
+    
+    setState(STATES.LISTENING_REPLY);
+    setResponseAudio(bird.responses[isCorrect ? 0 : 1])
   };
 
   const nextPress = () => {
@@ -93,9 +102,12 @@ function Main(props: {
           <AnswerControls mode={mode} bird={bird} handleAnswer={handleAnswer} />
         )}
         {(mode === GAME_MODES.VOICE_INPUT) && (
-          <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
+          <>
+            <Voice state={state} bird={bird} handleAnswer={handleAnswer} nextPress={nextPress} setReplayAudio={setReplayAudio} />
+            <VoiceResponse state={state} setState={setState} responseAudio={responseAudio} />
+          </>
         )}
-        {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
+        {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED || state === STATES.LISTENING_REPLY) && (
           <>
             <p className="panel">{feedback}</p>
             <BirdCard bird={bird} />

@@ -7,7 +7,8 @@ export enum STATES {
   REPLAYING_PAUSED = "Replaying paused",
   ANSWERED = "Answered",
   REVIEWING = "Reviewing",
-  REVIEWING_PAUSED = "Reviewing paused"
+  REVIEWING_PAUSED = "Reviewing paused",
+  LISTENING_REPLY = "Listening to reply"
 };
 
 export enum MIC_STATES {

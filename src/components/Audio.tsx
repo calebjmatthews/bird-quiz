@@ -167,7 +167,7 @@ function Audio(props: {
         <div className="audio-button-background" style={buttonBackgroundStyle} />
         {(state === STATES.CLEAN || state === STATES.PAUSED || state === STATES.REPLAYING_PAUSED || state === STATES.REVIEWING_PAUSED) && <PlayIcon />}
         {(state === STATES.PLAYING || state === STATES.REPLAYING || state === STATES.REVIEWING) && <PauseIcon />}
-        {(state === STATES.ANSWERING || state === STATES.ANSWERED) && <ReplayIcon />}
+        {(state === STATES.ANSWERING || state === STATES.ANSWERED || state === STATES.LISTENING_REPLY) && <ReplayIcon />}
       </button>
     </section>
   );

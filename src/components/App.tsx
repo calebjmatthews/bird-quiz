@@ -29,15 +29,6 @@ function App() {
     setMode(modeName);
   };
 
-  return (<code>
-    {JSON.stringify(birds.map((bird) => {
-      return { ...bird, responses: [
-        `require("../responses/${bird.speciesCommon.split(" ").join("-")}-correct.wav`,
-        `require("../responses/${bird.speciesCommon.split(" ").join("-")}-incorrect.wav`
-      ] };
-    }))}
-  </code>);
-
   if (mode === null) return (
     <div className="responsive-container">
       <h1 className="app-heading">
