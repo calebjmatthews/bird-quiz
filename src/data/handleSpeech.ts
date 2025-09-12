@@ -15,7 +15,11 @@ const handleSpeech = async (request: Request) => {
 
 const initializeLeopard = (retries: number = 0) => new Promise<Leopard>((resolve, reject) => {
   try {
-    const leopard = new Leopard(process.env.PICOVOICE_API_KEY || "");
+    const apiKey = process.env.PICOVOICE_API_KEY || "";
+    const leopardOptions = process.env.LEOPARD_MODEL_PATH
+      ? { modelPath: process.env.LEOPARD_MODEL_PATH }
+      : undefined;
+    const leopard = new Leopard(apiKey, leopardOptions);
     resolve(leopard);
   }
   catch(err) {
