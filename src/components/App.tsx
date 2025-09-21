@@ -2,6 +2,7 @@ import { useState } from "react";
 import Main from "./Main";
 import birds from '../data/birds';
 import { GAME_MODES } from "../data/enums";
+import AllCardsContainer from "./AllCardsContainer";
 
 function App() {
   const [mode, setMode] = useState<GAME_MODES | null>(null);
@@ -14,7 +15,7 @@ function App() {
     id: GAME_MODES.MULT_HARD,
     name: "Multiple Choice - Harder",
     explanation: "Choose from six random birds."
-    // explanation: "Choose from six birds, which are as related as possible."
+    // explanation: "Choose from six birds which are as related as possible."
   }, {
     id: GAME_MODES.TEXT_INPUT,
     name: "Free Text Input",
@@ -35,7 +36,11 @@ function App() {
         <span>E.R.M.</span>
         <span className="app-heading-explaination">(Environmental Recording Match)</span>
         <span>Bird Quiz</span>
-        <span className="app-heading-explaination">{`Featuring ${birds.length} Wisconsin birds!`}</span>
+        <span className="app-heading-explaination">{`Featuring `}
+          <a className="pseudolink" onClick={() => modePress(GAME_MODES.ALL_CARDS)}>
+            {`${birds.length} Wisconsin birds!`}
+          </a>
+        </span>
       </h1>
       <p className="bare-text">Pick a mode:</p>
       <section className="choice-container">
@@ -52,6 +57,8 @@ function App() {
       </section>
     </div>
   );
+
+  if (mode === GAME_MODES.ALL_CARDS) return <AllCardsContainer setMode={setMode} />;
 
   return <Main mode={mode} />;
 };

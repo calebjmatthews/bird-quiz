@@ -93,7 +93,7 @@ function Main(props: {
             setReplayAudio={setReplayAudio}
           />
           {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
-            <button className="next-button" onClick={nextPress}>
+            <button className="icon-button" onClick={nextPress}>
               Next<ArrowIcon />
             </button>
           )}

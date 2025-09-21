@@ -72,6 +72,7 @@ button {
     hsl(223deg 82% 87%) 92%,
     hsl(222deg 86% 89%) 100%
   );
+  background-attachment: fixed;
   min-height: fit-content;
   height: 100%;
   padding-bottom: 16px;
@@ -85,7 +86,16 @@ button {
 
 .bare-text {
   color: white;
-      text-shadow: .3px 1px 2px #333f5eb5;
+  text-shadow: .3px 1px 2px #333f5eb5;
+}
+
+.pseudolink {
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: #f0f4fd;
+  }
 }
 
 .app-heading {
@@ -96,7 +106,7 @@ button {
   margin-bottom: 16px;
   font-size: 42px;
   color: #fff;
-      text-shadow: .3px 1px 2px #333f5eb5;
+  text-shadow: .3px 1px 2px #333f5eb5;
   font-weight: bold;
 }
 
@@ -224,7 +234,7 @@ button {
   font-size: 20px;
 }
 
-.next-button {
+.icon-button {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -239,6 +249,10 @@ button {
       stroke: #4c6992;
     }
   }
+}
+
+.icon-reversed {
+  transform: rotate(180deg);
 }
 
 .panel {
@@ -386,7 +400,7 @@ button {
   min-width: min(280px, calc(100vw - 32px));
   max-width: min(280px, calc(100vw - 32px));
   color: #4c6992;
-  background-color: #27365d;
+  background-color: #7281a5;
   border-radius: 16px;
   box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
 }
@@ -404,4 +418,24 @@ button {
 .bird-card-caption {
   display: flex;
   flex-direction: column;
+}
+
+.all-cards-container {
+  padding: 16px;
+
+  @media (min-width: 500px) {
+    padding: 32px;
+  }
+
+  .icon-button {
+    margin-bottom: 32px;
+  }
+}
+
+.family-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 32px;
 }

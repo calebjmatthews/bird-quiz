@@ -26,6 +26,7 @@ export enum GAME_MODES {
   MULT_HARD = "Multiple choice harder",
   TEXT_INPUT = "Free text input",
   VOICE_INPUT = "Voice input",
+  ALL_CARDS = "All cards"
 };
 
 export enum COMMANDS {
