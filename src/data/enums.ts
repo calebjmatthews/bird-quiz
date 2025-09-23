@@ -35,3 +35,9 @@ export enum COMMANDS {
   PLAY = "Play",
   NEXT = "Next"
 };
+
+export enum CARD_AUDIO_ACTIONS {
+  PLAY = "Play",
+  STOP = "Stop",
+  READY = "Ready"
+};

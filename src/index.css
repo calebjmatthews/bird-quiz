@@ -49,7 +49,14 @@ body {
 }
 
 button {
+  background-color: #fff;
+  border: 1px solid #333f5eb5;
   cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f2f4f9;
+  }
 }
 
 #root {
@@ -170,8 +177,7 @@ button {
   overflow: hidden;
   padding: 8px;
   border-radius: 50%;
-  padding: 8px;
-  border: 6px groove #78a5e6;;
+  border: 6px groove #78a5e6;
   box-shadow: 0.3px 0.5px 0.7px hsl(223deg 34% 56% / 0.36), 0.8px 1.6px 2px -0.8px hsl(223deg 34% 56% / 0.36), 2.1px 4.1px 5.2px -1.7px hsl(223deg 34% 56% / 0.36), 5px 10px 12.6px -2.5px hsl(223deg 34% 56% / 0.36);
   transition-property: box-shadow, background-color, border-color;
   transition-duration: 0.2s;
@@ -418,6 +424,30 @@ button {
 .bird-card-caption {
   display: flex;
   flex-direction: column;
+}
+
+.bird-card-audio-container {
+  display: flex;
+  width: 100%;
+  padding-bottom: 8px;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+
+.bird-card-audio-button {
+  padding: 2px;
+  border: 1px solid #4c6992;
+  border-radius: 50%;
+
+  svg {
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    path {
+      stroke: #4c6992;
+    }
+  }
 }
 
 .all-cards-container {

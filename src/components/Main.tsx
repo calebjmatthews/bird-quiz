@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 
 import Audio from "./Audio";
 import AnswerControls from "./AnswerControls";
@@ -8,10 +8,11 @@ import Bird from "../data/bird";
 import birds from "../data/birds";
 import shuffleArray from "../data/shuffleArray";
 import Stats from "../data/stats";
-import { GAME_MODES, STATES } from "../data/enums";
+import { CARD_AUDIO_ACTIONS, GAME_MODES, STATES } from "../data/enums";
 import "../index.css";
 import BirdCard from "./BirdCard";
 import VoiceResponse from "./VoiceResponse";
+import CardAudioPlayer from "./CardAudioPlayer";
 
 function Main(props: {
   mode: GAME_MODES
@@ -25,6 +26,8 @@ function Main(props: {
   const [abortAudio, setAbortAudio] = useState(false);
   const [replayAudio, setReplayAudio] = useState(false);
   const [responseAudio, setResponseAudio] = useState <any> (null);
+  const [cardAudioId, setCardAudioId] = useState <string|null> (null);
+  const [cardAudioAction, setCardAudioAction] = useState(CARD_AUDIO_ACTIONS.READY);
 
   const pickBird = useCallback(() => {
     const nextBirdList = birdList.slice(1);
@@ -81,6 +84,11 @@ function Main(props: {
           )}
         </div>
       </header>
+      <CardAudioPlayer
+        cardAudioId={cardAudioId}
+        cardAudioAction={cardAudioAction}
+        setCardAudioAction={setCardAudioAction}
+      />
       <div className="responsive-container main">
         <div className="buttons-container">
           <Audio
@@ -110,7 +118,12 @@ function Main(props: {
         {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED || state === STATES.LISTENING_REPLY) && (
           <>
             <p className="panel">{feedback}</p>
-            <BirdCard bird={bird} />
+            <BirdCard
+              bird={bird}
+              cardAudioId={cardAudioId}
+              setCardAudioId={setCardAudioId}
+              setCardAudioAction={setCardAudioAction}
+            />
           </>
         )}
       </div>

@@ -15,7 +15,7 @@ function VoiceResponse(props: {
     if (state === STATES.LISTENING_REPLY) {
       playAudio();
     }
-  });
+  }, [state]);
 
   const playAudio = useCallback(() => {
     if (!audioPlayer?.current) {
