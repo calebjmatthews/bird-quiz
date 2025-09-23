@@ -66,6 +66,7 @@ function Main(props: {
   const nextPress = () => {
     if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) setAbortAudio(true);
     setState(STATES.CLEAN);
+    setCardAudioAction(CARD_AUDIO_ACTIONS.STOP);
     pickBird();
   };
 
