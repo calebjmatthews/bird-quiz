@@ -23,6 +23,7 @@ const initializeLeopard = (retries: number = 0) => new Promise<Leopard>((resolve
     resolve(leopard);
   }
   catch(err) {
+    console.error(`initializeLeopard err:`, err);
     if (retries >= 10) {
       reject(err);
     }
