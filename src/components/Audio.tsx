@@ -24,6 +24,7 @@ function Audio(props: {
   useEffect(() => {
     if (state === STATES.CLEAN) {
       setTimeout(() => playAudio(), 100);
+      setState(STATES.PLAYING);
     }
   }, [state]);
 
