@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Main from "./Main";
+import BirthdayMessage from "./BirthdayMessage";
 import birds from '../data/birds';
 import { GAME_MODES } from "../data/enums";
 import AllCardsContainer from "./AllCardsContainer";
@@ -32,6 +33,7 @@ function App() {
 
   if (mode === null) return (
     <div className="responsive-container">
+      <BirthdayMessage />
       <h1 className="app-heading">
         <span>E.R.M.</span>
         <span className="app-heading-explaination">(Environmental Recording Match)</span>

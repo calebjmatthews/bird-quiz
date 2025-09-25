@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ricky0123/vad-web": "^0.0.26",
+    "canvas-confetti": "^1.9.3",
     "fuse.js": "^7.1.0",
     "react": "^19",
     "react-dom": "^19"
