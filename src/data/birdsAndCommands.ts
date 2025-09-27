@@ -19,6 +19,7 @@ const birdsAndCommands: BirdOrCommand[] = [
   { value: COMMANDS.NEXT },
   { value: COMMANDS.REPLAY },
   { value: COMMANDS.PLAY },
+  { value: COMMANDS.SKIP }
 ];
 
 export default birdsAndCommands;

@@ -35,7 +35,7 @@ function Main(props: {
     setBird(nextBirdList[0]);
   }, [birdList, setBird, setBirdList]);
 
-  const handleAnswer = (isCorrect: boolean) => {
+  const handleAnswer = (isCorrect: boolean, skipped: boolean = false) => {
     if (state === STATES.REPLAYING || state === STATES.REPLAYING_PAUSED) setAbortAudio(true);
     if (isCorrect) {
       setFeedback(<span>{`That's correct!`}</span>);
@@ -46,7 +46,7 @@ function Main(props: {
       });
     }
     else {
-      setFeedback(<span>{`Sorry, that's incorrect.`}</span>);
+      if (!skipped) { setFeedback(<span>{`Sorry, that's incorrect.`}</span>); }
       setStats({
         correct: stats.correct,
         total: (stats.total + 1),
@@ -68,6 +68,10 @@ function Main(props: {
     setState(STATES.CLEAN);
     setCardAudioAction(CARD_AUDIO_ACTIONS.STOP);
     pickBird();
+  };
+
+  const skipPress = () => {
+    handleAnswer(false);
   };
 
   return (
@@ -101,9 +105,14 @@ function Main(props: {
             replayAudio={replayAudio}
             setReplayAudio={setReplayAudio}
           />
-          {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED) && (
+          {(state === STATES.ANSWERED || state === STATES.REVIEWING || state === STATES.REVIEWING_PAUSED || state === STATES.LISTENING_REPLY) && (
             <button className="icon-button" onClick={nextPress}>
               Next<ArrowIcon />
+            </button>
+          )}
+          {(state !== STATES.ANSWERED && state !== STATES.REVIEWING && state !== STATES.REVIEWING_PAUSED && state !== STATES.LISTENING_REPLY) && (
+            <button className="icon-button" onClick={skipPress}>
+              Skip<ArrowIcon />
             </button>
           )}
         </div>

@@ -33,7 +33,8 @@ export enum COMMANDS {
   AGAIN = "Again",
   REPLAY = "Replay",
   PLAY = "Play",
-  NEXT = "Next"
+  NEXT = "Next",
+  SKIP = "Skip"
 };
 
 export enum CARD_AUDIO_ACTIONS {
